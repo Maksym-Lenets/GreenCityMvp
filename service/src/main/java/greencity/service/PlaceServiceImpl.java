@@ -59,7 +59,6 @@ import greencity.enums.UserStatus;
 import greencity.exception.exceptions.NotFoundException;
 import greencity.exception.exceptions.PlaceStatusException;
 import greencity.exception.exceptions.UserBlockedException;
-import greencity.message.SendChangePlaceStatusEmailMessage;
 import greencity.repository.CategoryRepo;
 import greencity.repository.PlaceRepo;
 import greencity.repository.UserRepo;
@@ -322,11 +321,6 @@ public class PlaceServiceImpl implements PlaceService {
         updatable.setModifiedDate(ZonedDateTime.now(datasourceTimezone));
         if (status.equals(PlaceStatus.APPROVED)) {
             notificationService.sendImmediatelyReport(modelMapper.map(updatable, PlaceVO.class));
-        }
-        if (oldStatus.equals(PlaceStatus.PROPOSED)) {
-            restClient.changePlaceStatus(new SendChangePlaceStatusEmailMessage(updatable.getAuthor().getName(),
-                updatable.getName(), updatable.getStatus().toString().toLowerCase(),
-                updatable.getAuthor().getEmail()));
         }
         return modelMapper.map(placeRepo.save(updatable), UpdatePlaceStatusDto.class);
     }

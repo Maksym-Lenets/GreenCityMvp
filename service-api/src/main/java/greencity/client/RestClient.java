@@ -28,11 +28,8 @@ import com.google.gson.Gson;
 
 import greencity.constant.RestTemplateLinks;
 import greencity.dto.PageableAdvancedDto;
-import greencity.dto.achievement.UserVOAchievement;
 import greencity.dto.econews.EcoNewsForSendEmailDto;
-import greencity.dto.place.PlaceVO;
 import greencity.enums.EmailNotification;
-import greencity.message.SendChangePlaceStatusEmailMessage;
 import greencity.message.SendHabitNotification;
 import greencity.message.SendReportEmailMessage;
 import lombok.RequiredArgsConstructor;
@@ -440,21 +437,7 @@ public class RestClient {
             HttpMethod.POST, entity, Object.class).getBody();
     }
 
-    /**
-     * send SendChangePlaceStatusEmailMessage to GreenCityUser.
-     *
-     * @param changePlaceStatusEmailMessage with information for sending email
-     *                                      during status update for {@link PlaceVO}
-     *                                      when PlaceStatus.PROPOSED.
-     * @author Taras Kavkalo
-     */
-    public void changePlaceStatus(SendChangePlaceStatusEmailMessage changePlaceStatusEmailMessage) {
-        HttpEntity<SendChangePlaceStatusEmailMessage> entity =
-            new HttpEntity<>(changePlaceStatusEmailMessage, new HttpHeaders());
-        restTemplate.exchange(greenCityUserServerAddress
-            + RestTemplateLinks.CHANGE_PLACE_STATUS, HttpMethod.POST, entity, Object.class)
-            .getBody();
-    }
+
 
     /**
      * send SendHabitNotification to GreenCityUser.

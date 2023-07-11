@@ -22,7 +22,6 @@ import greencity.dto.verifyemail.VerifyEmailVO;
 import greencity.enums.Role;
 import greencity.enums.ShoppingListItemStatus;
 import greencity.message.AddEcoNewsMessage;
-import greencity.message.SendChangePlaceStatusEmailMessage;
 import greencity.message.SendHabitNotification;
 import greencity.message.SendReportEmailMessage;
 import java.time.LocalDateTime;
@@ -57,15 +56,6 @@ public class ModelUtils {
             .id(1L)
             .email("test@gmail.com")
             .name("taras")
-            .build();
-    }
-
-    public static SendChangePlaceStatusEmailMessage getSendChangePlaceStatusEmailMessage() {
-        return SendChangePlaceStatusEmailMessage.builder()
-            .placeStatus("status")
-            .authorEmail("test@gmail.com")
-            .placeName("placeName")
-            .authorFirstName("taras")
             .build();
     }
 
