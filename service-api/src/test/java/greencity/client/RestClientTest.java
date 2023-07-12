@@ -13,7 +13,6 @@ import greencity.dto.achievement.UserVOAchievement;
 import greencity.dto.econews.EcoNewsForSendEmailDto;
 import greencity.dto.eventcomment.EventCommentForSendEmailDto;
 import greencity.enums.EmailNotification;
-import greencity.message.SendChangePlaceStatusEmailMessage;
 import greencity.message.SendHabitNotification;
 import greencity.message.SendReportEmailMessage;
 
@@ -397,18 +396,6 @@ class RestClientTest {
             + RestTemplateLinks.SEND_REPORT, HttpMethod.POST, entity, Object.class);
     }
 
-    @Test
-    void changePlaceStatus() {
-        SendChangePlaceStatusEmailMessage message = ModelUtils.getSendChangePlaceStatusEmailMessage();
-        HttpEntity<SendChangePlaceStatusEmailMessage> entity = new HttpEntity<>(message, new HttpHeaders());
-        when(restTemplate.exchange(greenCityUserServerAddress
-            + RestTemplateLinks.CHANGE_PLACE_STATUS, HttpMethod.POST, entity, Object.class))
-                .thenReturn(ResponseEntity.ok(Object));
-        restClient.changePlaceStatus(message);
-
-        verify(restTemplate).exchange(greenCityUserServerAddress
-            + RestTemplateLinks.CHANGE_PLACE_STATUS, HttpMethod.POST, entity, Object.class);
-    }
 
     @Test
     void sendHabitNotification() {
