@@ -1,7 +1,5 @@
 package greencity.controller;
 
-import greencity.service.SocialNetworkImageService;
-import greencity.service.SocialNetworkService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

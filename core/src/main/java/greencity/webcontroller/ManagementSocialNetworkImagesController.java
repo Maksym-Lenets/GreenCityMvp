@@ -7,7 +7,6 @@ import greencity.dto.genericresponse.GenericResponseDto;
 import greencity.dto.socialnetwork.SocialNetworkImageRequestDTO;
 import greencity.dto.socialnetwork.SocialNetworkImageResponseDTO;
 import greencity.dto.socialnetwork.SocialNetworkImageVO;
-import greencity.service.SocialNetworkImageService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;

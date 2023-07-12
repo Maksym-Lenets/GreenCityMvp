@@ -2,8 +2,6 @@ package greencity.controller;
 
 import greencity.constant.HttpStatuses;
 import greencity.dto.socialnetwork.SocialNetworkImageVO;
-import greencity.service.SocialNetworkImageService;
-import greencity.service.SocialNetworkService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
