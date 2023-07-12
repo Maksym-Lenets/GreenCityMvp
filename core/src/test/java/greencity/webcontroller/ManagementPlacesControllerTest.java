@@ -7,7 +7,6 @@ import greencity.dto.place.AdminPlaceDto;
 import greencity.dto.place.PlaceUpdateDto;
 import greencity.dto.specification.SpecificationNameDto;
 import greencity.service.CategoryService;
-import greencity.service.PlaceService;
 import greencity.service.SpecificationService;
 import java.util.Arrays;
 import java.util.Collections;

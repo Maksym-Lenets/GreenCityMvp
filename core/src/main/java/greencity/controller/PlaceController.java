@@ -19,8 +19,6 @@ import greencity.dto.place.PlaceWithUserDto;
 import greencity.dto.place.UpdatePlaceStatusDto;
 import greencity.dto.user.UserVO;
 import greencity.enums.PlaceStatus;
-import greencity.service.FavoritePlaceService;
-import greencity.service.PlaceService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;

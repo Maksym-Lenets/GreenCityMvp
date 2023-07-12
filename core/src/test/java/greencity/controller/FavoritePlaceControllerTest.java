@@ -2,7 +2,7 @@ package greencity.controller;
 
 import greencity.ModelUtils;
 import greencity.dto.favoriteplace.FavoritePlaceDto;
-import greencity.service.FavoritePlaceService;
+
 import java.security.Principal;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

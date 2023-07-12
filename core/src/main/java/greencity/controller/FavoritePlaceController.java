@@ -6,7 +6,6 @@ import greencity.dto.favoriteplace.FavoritePlaceVO;
 import greencity.dto.place.PlaceByBoundsDto;
 import greencity.dto.place.PlaceVO;
 import greencity.dto.user.UserVO;
-import greencity.service.FavoritePlaceService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;

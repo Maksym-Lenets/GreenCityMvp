@@ -48,8 +48,6 @@ import greencity.dto.place.UpdatePlaceStatusDto;
 import greencity.dto.specification.SpecificationNameDto;
 import greencity.dto.user.UserVO;
 import greencity.enums.UserStatus;
-import greencity.service.FavoritePlaceService;
-import greencity.service.PlaceService;
 
 import static org.mockito.Mockito.anyObject;
 import static org.mockito.Mockito.mock;

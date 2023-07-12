@@ -12,7 +12,6 @@ import greencity.dto.place.PlaceVO;
 import greencity.dto.specification.SpecificationNameDto;
 import greencity.dto.user.UserVO;
 import greencity.service.CategoryService;
-import greencity.service.PlaceService;
 import greencity.service.SpecificationService;
 import java.util.List;
 import java.util.stream.Collectors;
