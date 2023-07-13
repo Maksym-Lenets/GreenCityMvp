@@ -7,14 +7,6 @@ import com.google.maps.model.Geometry;
 import com.google.maps.model.LatLng;
 import greencity.constant.AppConstant;
 import greencity.dto.PageableAdvancedDto;
-import greencity.dto.achievement.AchievementManagementDto;
-import greencity.dto.achievement.AchievementPostDto;
-import greencity.dto.achievement.AchievementTranslationVO;
-import greencity.dto.achievement.AchievementVO;
-import greencity.dto.achievement.UserAchievementVO;
-import greencity.dto.achievement.UserVOAchievement;
-import greencity.dto.achievementcategory.AchievementCategoryDto;
-import greencity.dto.achievementcategory.AchievementCategoryVO;
 import greencity.dto.advice.AdvicePostDto;
 import greencity.dto.advice.AdviceTranslationVO;
 import greencity.dto.advice.AdviceVO;
@@ -376,13 +368,6 @@ public class ModelUtils {
             .role(Role.ROLE_ADMIN).build();
     }
 
-    public static UserVOAchievement getUserVOAchievement() {
-        return UserVOAchievement.builder()
-            .id(1L)
-            .name(TestConst.NAME)
-            .build();
-    }
-
     public static UserVO getUserVOWithData() {
         return UserVO.builder()
             .id(13L)
@@ -437,32 +422,8 @@ public class ModelUtils {
                     .build())
                 .build())
             .lastActivityTime(LocalDateTime.of(2020, 12, 11, 13, 30))
-            .userAchievements(List.of(
-                UserAchievementVO.builder()
-                    .id(47L)
-                    .achievementStatus(AchievementStatus.ACTIVE)
-                    .user(UserVO.builder()
-                        .id(13L)
-                        .build())
-                    .achievement(AchievementVO.builder()
-                        .id(56L)
-                        .build())
-                    .build(),
-                UserAchievementVO.builder()
-                    .id(39L)
-                    .achievementStatus(AchievementStatus.INACTIVE)
-                    .user(UserVO.builder()
-                        .id(13L)
-                        .build())
-                    .achievement(AchievementVO.builder()
-                        .id(14L)
-                        .build())
-                    .build()))
             .userActions(Collections.singletonList(UserActionVO.builder()
                 .id(13L)
-                .achievementCategory(AchievementCategoryVO.builder()
-                    .id(1L)
-                    .build())
                 .count(0)
                 .user(UserVO.builder()
                     .id(13L)
@@ -1371,36 +1332,8 @@ public class ModelUtils {
         return new AchievementCategory(1L, "Name", null, null);
     }
 
-    public static AchievementVO getAchievementVO() {
-        return new AchievementVO(1L, Collections.emptyList(), Collections.emptyList(), new AchievementCategoryVO(), 1);
-    }
-
-    public static AchievementPostDto getAchievementPostDto() {
-        return new AchievementPostDto(Collections.emptyList(), getAchievementCategoryDto(), 1);
-    }
-
-    public static AchievementCategoryDto getAchievementCategoryDto() {
-        return new AchievementCategoryDto("Test");
-    }
-
-    public static AchievementTranslationVO getAchievementTranslationVO() {
-        return new AchievementTranslationVO(1L, getLanguageVO(), "Title", "Description", "Message");
-    }
-
-    public static AchievementCategoryVO getAchievementCategoryVO() {
-        return new AchievementCategoryVO(1L, "Category", null, null);
-    }
-
-    public static AchievementManagementDto getAchievementManagementDto() {
-        return new AchievementManagementDto(1L);
-    }
-
     public static AchievementTranslation getAchievementTranslation() {
         return new AchievementTranslation(1L, getLanguage(), "Title", "Description", "Message", null);
-    }
-
-    public static UserAchievementVO getUserAchievementVO() {
-        return new UserAchievementVO(1L, getUserVO(), getAchievementVO(), AchievementStatus.ACTIVE);
     }
 
     public static UserAchievement getUserAchievement() {
@@ -1412,7 +1345,7 @@ public class ModelUtils {
     }
 
     public static UserActionVO getUserActionVO() {
-        return new UserActionVO(1L, ModelUtils.getUserVO(), ModelUtils.getAchievementCategoryVO(), 0);
+        return new UserActionVO(1L, ModelUtils.getUserVO(), 0);
     }
 
     public static EcoNewsDto getEcoNewsDto() {
@@ -1679,27 +1612,6 @@ public class ModelUtils {
                             .id(75L)
                             .name("Andrew")
                             .build()))
-                    .userAchievements(List.of(
-                        UserAchievementVO.builder()
-                            .id(47L)
-                            .achievementStatus(AchievementStatus.ACTIVE)
-                            .user(UserVO.builder()
-                                .id(1L)
-                                .build())
-                            .achievement(AchievementVO.builder()
-                                .id(56L)
-                                .build())
-                            .build(),
-                        UserAchievementVO.builder()
-                            .id(39L)
-                            .achievementStatus(AchievementStatus.INACTIVE)
-                            .user(UserVO.builder()
-                                .id(1L)
-                                .build())
-                            .achievement(AchievementVO.builder()
-                                .id(14L)
-                                .build())
-                            .build()))
                     .refreshTokenKey("fsdfsfd")
                     .ownSecurity(OwnSecurityVO.builder()
                         .id(1L)
@@ -1757,32 +1669,8 @@ public class ModelUtils {
                     .build())
                 .build())
             .lastActivityTime(LocalDateTime.of(2020, 12, 11, 13, 30))
-            .userAchievements(List.of(
-                UserAchievementVO.builder()
-                    .id(47L)
-                    .achievementStatus(AchievementStatus.ACTIVE)
-                    .user(UserVO.builder()
-                        .id(1L)
-                        .build())
-                    .achievement(AchievementVO.builder()
-                        .id(56L)
-                        .build())
-                    .build(),
-                UserAchievementVO.builder()
-                    .id(39L)
-                    .achievementStatus(AchievementStatus.INACTIVE)
-                    .user(UserVO.builder()
-                        .id(1L)
-                        .build())
-                    .achievement(AchievementVO.builder()
-                        .id(14L)
-                        .build())
-                    .build()))
             .userActions(Collections.singletonList(UserActionVO.builder()
                 .id(1L)
-                .achievementCategory(AchievementCategoryVO.builder()
-                    .id(1L)
-                    .build())
                 .count(0)
                 .user(UserVO.builder()
                     .id(1L)
