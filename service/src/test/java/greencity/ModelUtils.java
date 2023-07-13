@@ -50,8 +50,6 @@ import greencity.dto.factoftheday.FactOfTheDayVO;
 import greencity.dto.favoriteplace.FavoritePlaceDto;
 import greencity.dto.favoriteplace.FavoritePlaceVO;
 import greencity.dto.friends.UserFriendDto;
-import greencity.dto.geocoding.AddressLatLngResponse;
-import greencity.dto.geocoding.AddressResponse;
 import greencity.dto.habit.AddCustomHabitDtoRequest;
 import greencity.dto.habit.AddCustomHabitDtoResponse;
 import greencity.dto.habit.HabitAssignDto;
@@ -2239,32 +2237,6 @@ public class ModelUtils {
         };
 
         return new GeocodingResult[] {geocodingResult};
-    }
-
-    public static AddressLatLngResponse getAddressLatLngResponse() {
-        return AddressLatLngResponse
-            .builder()
-            .latitude(51.1234567)
-            .longitude(28.7654321)
-            .addressEn(AddressResponse
-                .builder()
-                .street("fake street name")
-                .houseNumber("13")
-                .city("fake city")
-                .region("fake region")
-                .country("fake country")
-                .formattedAddress("Full formatted address")
-                .build())
-            .addressUa(AddressResponse
-                .builder()
-                .street("вулиця")
-                .houseNumber("13")
-                .city("місто")
-                .region("область")
-                .country("країна")
-                .formattedAddress("Повна відформатована адреса")
-                .build())
-            .build();
     }
 
     public static AddPlaceLocation getAddPlaceLocation() {
