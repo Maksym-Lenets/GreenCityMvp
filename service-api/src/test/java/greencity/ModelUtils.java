@@ -11,7 +11,6 @@ import greencity.dto.habit.AddCustomHabitDtoRequest;
 import greencity.dto.habit.AddCustomHabitDtoResponse;
 import greencity.dto.habit.UserShoppingAndCustomShoppingListsDto;
 import greencity.dto.newssubscriber.NewsSubscriberResponseDto;
-import greencity.dto.place.PlaceNotificationDto;
 import greencity.dto.shoppinglistitem.CustomShoppingListItemResponseDto;
 import greencity.dto.tag.TagUaEnDto;
 import greencity.dto.user.EcoNewsAuthorDto;
@@ -41,13 +40,6 @@ public class ModelUtils {
             .lastActivityTime(LocalDateTime.now())
             .verifyEmail(new VerifyEmailVO())
             .dateOfRegistration(LocalDateTime.now())
-            .build();
-    }
-
-    public static PlaceNotificationDto getPlaceNotificationDto() {
-        return PlaceNotificationDto.builder()
-            .category(getCategoryDto())
-            .name("name")
             .build();
     }
 
@@ -83,8 +75,6 @@ public class ModelUtils {
     public static SendReportEmailMessage getSendReportEmailMessage() {
         return SendReportEmailMessage.builder()
             .emailNotification("notification")
-            .categoriesDtoWithPlacesDtoMap(Collections.singletonMap(
-                getCategoryDto(), Collections.singletonList(getPlaceNotificationDto())))
             .subscribers(Collections.singletonList(getPlaceAuthorDto()))
             .build();
     }

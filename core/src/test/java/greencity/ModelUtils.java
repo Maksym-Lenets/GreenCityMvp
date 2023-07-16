@@ -3,16 +3,9 @@ package greencity;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import greencity.constant.AppConstant;
 import greencity.dto.PageableAdvancedDto;
-import greencity.dto.achievement.AchievementPostDto;
-import greencity.dto.achievement.AchievementTranslationVO;
-import greencity.dto.achievement.AchievementVO;
-import greencity.dto.achievement.UserAchievementVO;
-import greencity.dto.achievementcategory.AchievementCategoryDto;
-import greencity.dto.achievementcategory.AchievementCategoryVO;
 import greencity.dto.advice.AdvicePostDto;
 import greencity.dto.breaktime.BreakTimeDto;
 import greencity.dto.category.CategoryVO;
-import greencity.dto.discount.DiscountValueDto;
 import greencity.dto.econews.AddEcoNewsDtoRequest;
 import greencity.dto.econews.AddEcoNewsDtoResponse;
 import greencity.dto.econews.EcoNewsDto;
@@ -223,10 +216,6 @@ public class ModelUtils {
 
     public static DiscountValue getDiscountValue() {
         return new DiscountValue(null, 33, null, null);
-    }
-
-    public static DiscountValueDto getDiscountValueDto() {
-        return new DiscountValueDto(33, null);
     }
 
     public static Place getPlace() {
@@ -577,27 +566,6 @@ public class ModelUtils {
 
     public static ShoppingListItemPostDto getShoppingListItemPostDto() {
         return new ShoppingListItemPostDto(getLanguageTranslationsDTOs(), new ShoppingListItemRequestDto(1L));
-    }
-
-    public static List<AchievementTranslationVO> getAchievementTranslationVOS() {
-        return Arrays.asList(
-            new AchievementTranslationVO(1L, getLanguageVO(), "title", "description", "message"),
-            new AchievementTranslationVO(2L, getLanguageVO(), "title", "description", "message"),
-            new AchievementTranslationVO(3L, getLanguageVO(), "title", "description", "message"));
-    }
-
-    public static AchievementCategoryDto getAchievementCategoryDto() {
-        return new AchievementCategoryDto("name");
-    }
-
-    public static AchievementPostDto getAchievementPostDto() {
-        return new AchievementPostDto(getAchievementTranslationVOS(), getAchievementCategoryDto(), 1);
-    }
-
-    public static AchievementVO getAchievementVO() {
-        return new AchievementVO(1L, getAchievementTranslationVOS(),
-            Collections.singletonList(new UserAchievementVO()),
-            new AchievementCategoryVO(1L, "name", null, null), 1);
     }
 
     public static UserShoppingListItem getUserShoppingListItem() {
