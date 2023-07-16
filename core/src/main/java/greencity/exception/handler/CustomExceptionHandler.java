@@ -278,21 +278,6 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
             .body(Collections.singletonList(validationExceptionDto));
     }
 
-    /**
-     * Method intercept exception {@link BadPlaceRequestException}.
-     *
-     * @param ex      Exception witch should be intercepted.
-     * @param request contain detail about occur exception
-     * @return ResponseEntity witch contain http status and body with message of
-     *         exception.
-     */
-    @ExceptionHandler(BadPlaceRequestException.class)
-    public final ResponseEntity<Object> handleBadPlaceRequestException(BadPlaceRequestException ex,
-        WebRequest request) {
-        ExceptionResponse exceptionResponse = new ExceptionResponse(getErrorAttributes(request));
-        log.trace(ex.getMessage(), ex);
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(exceptionResponse);
-    }
 
     /**
      * Method intercept exception {@link BadSocialNetworkLinksException}.
@@ -592,21 +577,6 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(UnsupportedSortException.class)
     public final ResponseEntity<Object> handleUnsuportedSortException(
         UnsupportedSortException ex, WebRequest request) {
-        ExceptionResponse exceptionResponse = new ExceptionResponse(getErrorAttributes(request));
-        log.trace(ex.getMessage(), ex);
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(exceptionResponse);
-    }
-
-    /**
-     * Customize the response for EventDtoValidationException.
-     *
-     * @param ex      the exception
-     * @param request the current request
-     * @return a {@code ResponseEntity} message
-     */
-    @ExceptionHandler(EventDtoValidationException.class)
-    public final ResponseEntity<Object> handleEventDtoValidationException(
-        EventDtoValidationException ex, WebRequest request) {
         ExceptionResponse exceptionResponse = new ExceptionResponse(getErrorAttributes(request));
         log.trace(ex.getMessage(), ex);
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(exceptionResponse);
