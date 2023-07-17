@@ -2,7 +2,6 @@ package greencity.dto.place;
 
 import greencity.constant.ServiceValidationConstants;
 import greencity.dto.category.CategoryDto;
-import greencity.dto.discount.DiscountValueDto;
 import greencity.dto.location.LocationAddressAndGeoDto;
 import greencity.dto.openhours.OpeningHoursDto;
 import greencity.dto.photo.PhotoAddDto;

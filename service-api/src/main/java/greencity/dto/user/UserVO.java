@@ -1,6 +1,5 @@
 package greencity.dto.user;
 
-import greencity.dto.achievement.UserAchievementVO;
 import greencity.dto.econews.EcoNewsVO;
 import greencity.dto.econewscomment.EcoNewsCommentVO;
 import greencity.dto.language.LanguageVO;
@@ -59,8 +58,6 @@ public class UserVO {
     private List<SocialNetworkVO> socialNetworks;
 
     private List<UserVO> userFriends = new ArrayList<>();
-
-    private List<UserAchievementVO> userAchievements = new ArrayList<>();
 
     private String refreshTokenKey;
 

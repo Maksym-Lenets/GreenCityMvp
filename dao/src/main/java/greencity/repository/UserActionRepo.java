@@ -1,6 +1,5 @@
 package greencity.repository;
 
-import greencity.entity.AchievementCategory;
 import greencity.entity.User;
 import greencity.entity.UserAction;
 import org.springframework.data.jpa.repository.JpaRepository;

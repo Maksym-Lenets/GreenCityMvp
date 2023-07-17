@@ -21,9 +21,6 @@ public class UserAction {
     @ManyToOne
     private User user;
 
-    @ManyToOne
-    private AchievementCategory achievementCategory;
-
     @Column(name = "count")
     private Integer count = 0;
 }
