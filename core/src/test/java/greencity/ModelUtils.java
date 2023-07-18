@@ -60,7 +60,6 @@ import greencity.entity.Category;
 import greencity.entity.DiscountValue;
 import greencity.entity.EcoNews;
 import greencity.entity.EcoNewsComment;
-import greencity.entity.FactOfTheDay;
 import greencity.entity.FavoritePlace;
 import greencity.entity.Habit;
 import greencity.entity.HabitAssign;
