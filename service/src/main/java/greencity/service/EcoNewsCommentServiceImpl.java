@@ -1,6 +1,5 @@
 package greencity.service;
 
-import greencity.achievement.AchievementCalculation;
 import greencity.annotations.RatingCalculationEnum;
 import static greencity.constant.AppConstant.AUTHORIZATION;
 import greencity.constant.ErrorMessage;
@@ -23,7 +22,6 @@ import greencity.exception.exceptions.NotFoundException;
 import greencity.exception.exceptions.UserHasNoPermissionToAccessException;
 import greencity.repository.EcoNewsCommentRepo;
 import javax.servlet.http.HttpServletRequest;
-
 import greencity.repository.EcoNewsRepo;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -42,7 +40,6 @@ import java.util.stream.Collectors;
 public class EcoNewsCommentServiceImpl implements EcoNewsCommentService {
     private EcoNewsCommentRepo ecoNewsCommentRepo;
     private EcoNewsService ecoNewsService;
-    private final AchievementCalculation achievementCalculation;
     private ModelMapper modelMapper;
     private final SimpMessagingTemplate messagingTemplate;
     private final greencity.rating.RatingCalculation ratingCalculation;
@@ -78,9 +75,6 @@ public class EcoNewsCommentServiceImpl implements EcoNewsCommentService {
                 throw new BadRequestException(ErrorMessage.CANNOT_REPLY_THE_REPLY);
             }
         }
-        CompletableFuture.runAsync(() -> achievementCalculation
-            .calculateAchievement(userVO.getId(), AchievementType.INCREMENT,
-                AchievementCategoryType.ECO_NEWS_COMMENT, 0));
         String accessToken = httpServletRequest.getHeader(AUTHORIZATION);
         CompletableFuture.runAsync(
             () -> ratingCalculation.ratingCalculation(RatingCalculationEnum.ADD_COMMENT, userVO, accessToken));

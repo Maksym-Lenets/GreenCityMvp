@@ -1,7 +1,6 @@
 package greencity.dto.comment;
 
 import greencity.dto.photo.PhotoReturnDto;
-import greencity.dto.place.AdminPlaceDto;
 import java.time.LocalDateTime;
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -16,5 +15,4 @@ public class CommentAdminDto {
     private String text;
     private LocalDateTime createdDate;
     private List<PhotoReturnDto> photos;
-    private AdminPlaceDto place;
 }
