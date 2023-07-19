@@ -2,7 +2,6 @@ package greencity.service;
 
 import greencity.dto.useraction.UserActionVO;
 import greencity.entity.UserAction;
-import greencity.repository.UserActionRepo;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
