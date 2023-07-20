@@ -4,7 +4,6 @@ import greencity.annotations.CurrentUser;
 import greencity.annotations.ValidLanguage;
 import greencity.dto.econews.EcoNewsDto;
 import greencity.dto.habit.HabitAssignDto;
-import greencity.dto.place.PlaceVO;
 import greencity.dto.user.UserVO;
 import greencity.enums.Role;
 import greencity.enums.UserStatus;
@@ -14,7 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
-
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Locale;
@@ -25,7 +23,6 @@ import java.util.Locale;
 public class ManagementUserPersonalPageController {
     private final HabitAssignService habitAssignService;
     private final EcoNewsService ecoNewsService;
-    private final PlaceService placeService;
     private final UserService userService;
 
     /**
@@ -52,7 +49,6 @@ public class ManagementUserPersonalPageController {
         List<HabitAssignDto> customHabits = habitAssignService
             .getAllCustomHabitAssignsByUserId(id, locale.getLanguage());
         List<EcoNewsDto> publishedEcoNews = ecoNewsService.getAllPublishedNewsByUserId(user.getId());
-        List<PlaceVO> createdEcoPlaces = placeService.getAllCreatedPlacesByUserId(user.getId());
 
         model.addAttribute("user", user);
         model.addAttribute("acquiredHabits", acquiredHabits);
@@ -60,7 +56,6 @@ public class ManagementUserPersonalPageController {
         model.addAttribute("cancelledHabits", cancelledHabits);
         model.addAttribute("customHabits", customHabits);
         model.addAttribute("publishedEcoNews", publishedEcoNews);
-        model.addAttribute("createdEcoPlaces", createdEcoPlaces);
         return "core/management_user_personal_page";
     }
 

@@ -1,7 +1,6 @@
 package greencity.dto.openhours;
 
 import greencity.dto.breaktime.BreakTimeVO;
-import greencity.dto.place.PlaceVO;
 import java.time.DayOfWeek;
 import java.time.LocalTime;
 import lombok.*;
@@ -18,5 +17,4 @@ public class OpeningHoursVO {
     private LocalTime closeTime;
     private DayOfWeek weekDay;
     private BreakTimeVO breakTime;
-    private PlaceVO place;
 }

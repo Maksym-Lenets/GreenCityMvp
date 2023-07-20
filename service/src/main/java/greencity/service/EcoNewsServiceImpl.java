@@ -1,6 +1,5 @@
 package greencity.service;
 
-import greencity.achievement.AchievementCalculation;
 import greencity.annotations.RatingCalculationEnum;
 import greencity.client.RestClient;
 import greencity.constant.CacheConstants;
@@ -17,8 +16,6 @@ import greencity.dto.user.PlaceAuthorDto;
 import greencity.dto.user.UserVO;
 import greencity.entity.*;
 import greencity.entity.localization.TagTranslation;
-import greencity.enums.AchievementCategoryType;
-import greencity.enums.AchievementType;
 import greencity.enums.Role;
 import greencity.enums.TagType;
 import greencity.exception.exceptions.BadRequestException;
@@ -43,7 +40,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
-
 import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
@@ -60,7 +56,6 @@ public class EcoNewsServiceImpl implements EcoNewsService {
     private final ModelMapper modelMapper;
     private final TagsService tagService;
     private final FileService fileService;
-    private final AchievementCalculation achievementCalculation;
     private final greencity.rating.RatingCalculation ratingCalculation;
     private final HttpServletRequest httpServletRequest;
     private final EcoNewsSearchRepo ecoNewsSearchRepo;
@@ -79,9 +74,6 @@ public class EcoNewsServiceImpl implements EcoNewsService {
 
         AddEcoNewsDtoResponse addEcoNewsDtoResponse = modelMapper.map(toSave, AddEcoNewsDtoResponse.class);
         sendEmailDto(addEcoNewsDtoResponse, toSave.getAuthor());
-        CompletableFuture.runAsync(() -> achievementCalculation
-            .calculateAchievement(toSave.getAuthor().getId(), AchievementType.INCREMENT,
-                AchievementCategoryType.ECO_NEWS, 0));
         return addEcoNewsDtoResponse;
     }
 
@@ -97,9 +89,6 @@ public class EcoNewsServiceImpl implements EcoNewsService {
 
         EcoNewsGenericDto ecoNewsDto = getEcoNewsGenericDtoWithAllTags(toSave);
         sendEmailDto(ecoNewsDto, toSave.getAuthor());
-        CompletableFuture.runAsync(() -> achievementCalculation
-            .calculateAchievement(toSave.getAuthor().getId(), AchievementType.INCREMENT,
-                AchievementCategoryType.ECO_NEWS, 0));
         return ecoNewsDto;
     }
 
@@ -426,8 +415,6 @@ public class EcoNewsServiceImpl implements EcoNewsService {
         String accessToken = httpServletRequest.getHeader(AUTHORIZATION);
         CompletableFuture
             .runAsync(() -> ratingCalculation.ratingCalculation(RatingCalculationEnum.LIKE_COMMENT, user, accessToken));
-        CompletableFuture.runAsync(() -> achievementCalculation
-            .calculateAchievement(user.getId(), AchievementType.INCREMENT, AchievementCategoryType.ECO_NEWS_LIKE, 0));
     }
 
     /**
