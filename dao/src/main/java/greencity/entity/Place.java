@@ -44,9 +44,6 @@ public class Place {
     @OneToMany(mappedBy = "place", cascade = CascadeType.PERSIST)
     private List<Photo> photos = new ArrayList<>();
 
-    @OneToMany(mappedBy = "place", cascade = CascadeType.PERSIST)
-    private Set<DiscountValue> discountValues = new HashSet<>();
-
     @OneToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     private Location location;
 

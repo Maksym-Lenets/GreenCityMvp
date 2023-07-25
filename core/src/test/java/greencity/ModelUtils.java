@@ -56,7 +56,6 @@ import greencity.dto.user.UserShoppingListItemResponseDto;
 import greencity.dto.user.UserVO;
 import greencity.entity.BreakTime;
 import greencity.entity.Category;
-import greencity.entity.DiscountValue;
 import greencity.entity.EcoNews;
 import greencity.entity.EcoNewsComment;
 import greencity.entity.FavoritePlace;

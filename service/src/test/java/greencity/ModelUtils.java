@@ -116,7 +116,6 @@ import greencity.entity.BreakTime;
 import greencity.entity.Category;
 import greencity.entity.Comment;
 import greencity.entity.CustomShoppingListItem;
-import greencity.entity.DiscountValue;
 import greencity.entity.EcoNews;
 import greencity.entity.EcoNewsComment;
 import greencity.entity.FavoritePlace;
