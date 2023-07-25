@@ -143,7 +143,6 @@ import greencity.enums.EmailNotification;
 import greencity.enums.FactOfDayStatus;
 import greencity.enums.HabitAssignStatus;
 import greencity.enums.HabitRate;
-import greencity.enums.PlaceStatus;
 import greencity.enums.Role;
 import greencity.enums.ShoppingListItemStatus;
 import greencity.enums.TagType;

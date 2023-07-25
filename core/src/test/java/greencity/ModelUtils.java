@@ -13,12 +13,6 @@ import greencity.dto.econewscomment.AddEcoNewsCommentDtoRequest;
 import greencity.dto.econewscomment.AddEcoNewsCommentDtoResponse;
 import greencity.dto.econewscomment.EcoNewsCommentAuthorDto;
 import greencity.dto.econewscomment.EcoNewsCommentDto;
-import greencity.dto.event.AddEventDtoRequest;
-import greencity.dto.event.EventDateLocationDto;
-import greencity.dto.factoftheday.FactOfTheDayDTO;
-import greencity.dto.factoftheday.FactOfTheDayPostDTO;
-import greencity.dto.factoftheday.FactOfTheDayTranslationEmbeddedPostDTO;
-import greencity.dto.favoriteplace.FavoritePlaceDto;
 import greencity.dto.habit.HabitAssignCustomPropertiesDto;
 import greencity.dto.habit.HabitAssignPropertiesDto;
 import greencity.dto.habit.HabitVO;
@@ -36,10 +30,8 @@ import greencity.dto.language.LanguageDTO;
 import greencity.dto.language.LanguageTranslationDTO;
 import greencity.dto.language.LanguageVO;
 import greencity.dto.location.LocationAddressAndGeoDto;
-import greencity.dto.location.LocationVO;
 import greencity.dto.newssubscriber.NewsSubscriberRequestDto;
 import greencity.dto.openhours.OpeningHoursDto;
-import greencity.dto.place.PlaceVO;
 import greencity.dto.shoppinglistitem.CustomShoppingListItemResponseDto;
 import greencity.dto.shoppinglistitem.ShoppingListItemPostDto;
 import greencity.dto.shoppinglistitem.ShoppingListItemRequestDto;
@@ -102,10 +94,6 @@ import java.util.List;
 import java.util.Set;
 
 public class ModelUtils {
-    public static Tag getTag() {
-        return new Tag(1L, TagType.ECO_NEWS, Collections.emptyList(), Collections.emptyList(),
-            Collections.emptySet(), Collections.emptySet());
-    }
 
     public static List<TagTranslationVO> getTagTranslationsVO() {
         return Arrays.asList(TagTranslationVO.builder().id(1L).name("Новини").build(),
@@ -117,22 +105,12 @@ public class ModelUtils {
         return new LanguageVO(1L, AppConstant.DEFAULT_LANGUAGE_CODE);
     }
 
-    public static TagVO getTagVO() {
-        return new TagVO(1L, TagType.ECO_NEWS, getTagTranslationsVO(), null, null, null);
-    }
-
     public static TagPostDto getTagPostDto() {
         return new TagPostDto(TagType.ECO_NEWS, Collections.emptyList());
     }
 
     public static TagViewDto getTagViewDto() {
         return new TagViewDto("3", "ECO_NEWS", "News");
-    }
-
-    public static PageableAdvancedDto<TagVO> getPageableAdvancedDtoForTag() {
-        return new PageableAdvancedDto<>(Collections.singletonList(getTagVO()),
-            10, 1, 4, 8,
-            true, true, true, true);
     }
 
     public static User getUser() {
@@ -157,16 +135,6 @@ public class ModelUtils {
 
     public static EcoNewsAuthorDto getEcoNewsAuthorDto() {
         return new EcoNewsAuthorDto(1L, TestConst.NAME);
-    }
-
-    public static Language getLanguage() {
-        return new Language(1L, AppConstant.DEFAULT_LANGUAGE_CODE, Collections.emptyList(), Collections.emptyList(),
-            Collections.emptyList(), Collections.emptyList());
-    }
-
-    public static EcoNews getEcoNews() {
-        return new EcoNews(1L, ZonedDateTime.now(), TestConst.SITE, null, "shortInfo", getUser(),
-            "title", "text", null, Collections.singletonList(getTag()), null, null);
     }
 
     public static EcoNewsDto getEcoNewsDto() {
@@ -204,31 +172,6 @@ public class ModelUtils {
         return new URL(TestConst.SITE);
     }
 
-    public static DiscountValue getDiscountValue() {
-        return new DiscountValue(null, 33, null, null);
-    }
-
-    public static Place getPlace() {
-        Place place = new Place();
-        place.setLocation(new Location(1L, 49.84988, 24.022533, "вулиця Під Дубом, 7Б", "test", place));
-        place.setId(1L);
-        place.setName("Forum");
-        place.setDescription("Shopping center");
-        place.setPhone("0322 489 850");
-        place.setEmail("forum_lviv@gmail.com");
-        place.setAuthor(getUser());
-        place.setModifiedDate(ZonedDateTime.now());
-        return place;
-    }
-
-    public static FavoritePlace getFavoritePlace() {
-        return new FavoritePlace(3L, "name", getUser(), getPlace());
-    }
-
-    public static FavoritePlaceDto getFavoritePlaceDto() {
-        return new FavoritePlaceDto("name", 3L);
-    }
-
     public static AddHabitStatisticDto addHabitStatisticDto() {
         return AddHabitStatisticDto.builder()
             .amountOfItems(5)
@@ -252,46 +195,6 @@ public class ModelUtils {
             .id(12L)
             .name("category")
             .build();
-    }
-
-    public static ShoppingListItemTranslation getShoppingListItemTranslation() {
-        return ShoppingListItemTranslation.builder()
-            .id(2L)
-            .language(
-                new Language(2L, AppConstant.DEFAULT_LANGUAGE_CODE, Collections.emptyList(), Collections.emptyList(),
-                    Collections.emptyList(), Collections.emptyList()))
-            .shoppingListItem(
-                new ShoppingListItem(1L, Collections.emptyList(), Collections.emptySet(), Collections.emptyList()))
-            .content("Buy a bamboo toothbrush")
-            .build();
-    }
-
-    public static List<ShoppingListItemTranslation> getShoppingListItemTranslations() {
-        return Arrays.asList(
-            ShoppingListItemTranslation.builder()
-                .id(2L)
-                .language(new Language(1L, AppConstant.DEFAULT_LANGUAGE_CODE, Collections.emptyList(),
-                    Collections.emptyList(), Collections.emptyList(), Collections.emptyList()))
-                .content("Buy a bamboo toothbrush")
-                .shoppingListItem(
-                    new ShoppingListItem(1L, Collections.emptyList(), Collections.emptySet(), Collections.emptyList()))
-                .build(),
-            ShoppingListItemTranslation.builder()
-                .id(11L)
-                .language(new Language(1L, AppConstant.DEFAULT_LANGUAGE_CODE, Collections.emptyList(),
-                    Collections.emptyList(), Collections.emptyList(), Collections.emptyList()))
-                .content("Start recycling batteries")
-                .shoppingListItem(
-                    new ShoppingListItem(4L, Collections.emptyList(), Collections.emptySet(), Collections.emptyList()))
-                .build());
-    }
-
-    public static Advice getAdvice() {
-        return new Advice(1L, null, null);
-    }
-
-    public static HabitFact getHabitFact() {
-        return new HabitFact(1L, Collections.singletonList(getHabitFactTranslation()), null);
     }
 
     public static LocationAddressAndGeoDto getLocationAddressAndGeoDto() {
@@ -318,45 +221,10 @@ public class ModelUtils {
         return openingHours;
     }
 
-    public static OpeningHours getOpeningHours() {
-        OpeningHours openingHoursTest = new OpeningHours();
-        openingHoursTest.setOpenTime(getLocalTime());
-        openingHoursTest.setCloseTime(getLocalTime());
-        openingHoursTest.setBreakTime(BreakTime.builder()
-            .startTime(getLocalTime())
-            .endTime(getLocalTime())
-            .build());
-        openingHoursTest.setWeekDay(DayOfWeek.MONDAY);
-        return openingHoursTest;
-    }
-
-    public static Location getLocation() {
-        return Location.builder()
-            .address("address")
-            .lng(12.12d)
-            .lat(12.12d)
-            .build();
-    }
-
-    public static LocationVO getLocationVO() {
-        return LocationVO.builder()
-            .address("address")
-            .lng(12.12d)
-            .lat(12.12d)
-            .build();
-    }
-
     public static Specification getSpecification() {
         return Specification.builder()
             .id(1L)
             .name("specification")
-            .build();
-    }
-
-    public static Photo getPhoto() {
-        return Photo.builder()
-            .id(1L)
-            .name("photo")
             .build();
     }
 
@@ -375,7 +243,6 @@ public class ModelUtils {
             .createdDate(LocalDateTime.now())
             .modifiedDate(LocalDateTime.now())
             .user(getUser())
-            .ecoNews(getEcoNews())
             .build();
     }
 
@@ -425,20 +292,6 @@ public class ModelUtils {
         return new UserProfilePictureDto(1L, "name", "image");
     }
 
-    public static FactOfTheDayDTO getFactOfTheDayDto() {
-        return new FactOfTheDayDTO(1L, "name", null, ZonedDateTime.now());
-    }
-
-    public static FactOfTheDay getFactOfTheDay() {
-        return new FactOfTheDay(1L, "Fact of the day", null, ZonedDateTime.now());
-    }
-
-    public static FactOfTheDayPostDTO getFactOfTheDayPostDto() {
-        return new FactOfTheDayPostDTO(1L, "name",
-            Collections.singletonList(
-                new FactOfTheDayTranslationEmbeddedPostDTO("content", AppConstant.DEFAULT_LANGUAGE_CODE)));
-    }
-
     public static ObjectMapper getObjectMapper() {
         return new ObjectMapper();
     }
@@ -456,7 +309,6 @@ public class ModelUtils {
                     .name("")
                     .description("")
                     .habitItem("")
-                    .language(getLanguage())
                     .build()))
                 .build())
             .user(getUser())
@@ -471,25 +323,6 @@ public class ModelUtils {
         return HabitStatusCalendar.builder()
             .id(1L)
             .enrollDate(LocalDate.now()).build();
-    }
-
-    public static AdviceTranslation getAdviceTranslation() {
-        return AdviceTranslation.builder()
-            .id(1L)
-            .language(getLanguage())
-            .content("Text content")
-            .advice(getAdvice())
-            .build();
-    }
-
-    public static HabitFactTranslation getHabitFactTranslation() {
-        return HabitFactTranslation.builder()
-            .id(1L)
-            .content("content")
-            .language(getLanguage())
-            .factOfDayStatus(FactOfDayStatus.POTENTIAL)
-            .habitFact(getHabitFact())
-            .build();
     }
 
     public static HabitFactVO getHabitFactVO() {
@@ -510,22 +343,6 @@ public class ModelUtils {
                     .build())
                 .build()))
             .build();
-    }
-
-    public static PlaceVO getPlaceVO() {
-        PlaceVO placeVO = new PlaceVO();
-        placeVO.setLocation(getLocationVO());
-        placeVO.setId(1L);
-        placeVO.setName("Forum");
-        placeVO.setDescription("Shopping center");
-        placeVO.setPhone("0322 489 850");
-        placeVO.setEmail("forum_lviv@gmail.com");
-        placeVO.setAuthor(getUserVO());
-        placeVO.setModifiedDate(ZonedDateTime.now());
-        CategoryVO categoryVO = new CategoryVO();
-        categoryVO.setName("category");
-        placeVO.setCategory(categoryVO);
-        return placeVO;
     }
 
     public static HabitFactPostDto getHabitFactPostDto() {
@@ -635,62 +452,6 @@ public class ModelUtils {
             .userShoppingListItemDto(List.of(getUserShoppingListItemResponseDto()))
             .customShoppingListItemDto(List.of(getCustomShoppingListItemResponseDto()))
             .build();
-    }
-
-    public static AddEventDtoRequest getEventDtoWithoutDates() {
-        return AddEventDtoRequest.builder().title("Title").description("Desc").isOpen(true).build();
-    }
-
-    public static AddEventDtoRequest getEventDtoWithZeroDates() {
-        return AddEventDtoRequest.builder().datesLocations(new ArrayList<>()).build();
-    }
-
-    public static AddEventDtoRequest getEventDtoWithTooManyDates() {
-        List<EventDateLocationDto> eventDateLocationDtos = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            eventDateLocationDtos.add(EventDateLocationDto.builder().id((long) i).build());
-        }
-        return AddEventDtoRequest.builder().datesLocations(eventDateLocationDtos).build();
-    }
-
-    public static AddEventDtoRequest getEventWithPastStartDate() {
-        return AddEventDtoRequest.builder().datesLocations(List.of(EventDateLocationDto.builder()
-            .startDate(ZonedDateTime.of(LocalDateTime.of(2022, 1, 1, 0, 0), ZoneId.systemDefault()))
-            .finishDate(ZonedDateTime.of(LocalDateTime.now(), ZoneId.systemDefault())).build())).build();
-    }
-
-    public static AddEventDtoRequest getEventWithStartDateAfterFinishDate() {
-        return AddEventDtoRequest.builder().datesLocations(List.of(EventDateLocationDto.builder()
-            .startDate(ZonedDateTime.of(LocalDateTime.of(2020, 1, 1, 0, 0), ZoneId.systemDefault()))
-            .finishDate(ZonedDateTime.of(LocalDateTime.of(2019, 1, 1, 0, 0), ZoneId.systemDefault())).build())).build();
-    }
-
-    public static AddEventDtoRequest getEventWithoutAddressAndLink() {
-        return AddEventDtoRequest.builder().datesLocations(List.of(EventDateLocationDto.builder()
-            .startDate(ZonedDateTime.now().plusDays(5))
-            .finishDate(ZonedDateTime.now().plusDays(5).plusHours(1)).build())).build();
-    }
-
-    public static AddEventDtoRequest getEventWithInvalidLink() {
-        return AddEventDtoRequest.builder().datesLocations(List.of(EventDateLocationDto.builder()
-            .startDate(ZonedDateTime.now().plusDays(5))
-            .finishDate(ZonedDateTime.now().plusDays(5).plusHours(1)).onlineLink("invalidLink").build())).build();
-    }
-
-    public static AddEventDtoRequest getEventWithTooManyTags() {
-        return AddEventDtoRequest.builder().datesLocations(List.of(EventDateLocationDto.builder()
-            .startDate(ZonedDateTime.now().plusDays(5))
-            .finishDate(ZonedDateTime.now().plusDays(5).plusHours(1))
-            .onlineLink("http://localhost:8060/swagger-ui.html#/").build()))
-            .tags(List.of("first", "second", "third", "fourth")).build();
-    }
-
-    public static AddEventDtoRequest getAddEventDtoRequest() {
-        return AddEventDtoRequest.builder().datesLocations(List.of(EventDateLocationDto.builder()
-            .startDate(ZonedDateTime.now().plusDays(5))
-            .finishDate(ZonedDateTime.now().plusDays(5).plusHours(1))
-            .onlineLink("http://localhost:8060/swagger-ui.html#/")
-            .build())).tags(List.of("first", "second", "third")).build();
     }
 
     public static AddCustomHabitDtoRequest getAddCustomHabitDtoRequest() {
