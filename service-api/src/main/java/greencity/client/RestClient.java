@@ -6,11 +6,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-
-import greencity.dto.eventcomment.EventCommentForSendEmailDto;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.data.domain.Pageable;
@@ -23,9 +20,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
-
 import com.google.gson.Gson;
-
 import greencity.constant.RestTemplateLinks;
 import greencity.dto.PageableAdvancedDto;
 import greencity.dto.econews.EcoNewsForSendEmailDto;
@@ -34,7 +29,6 @@ import greencity.message.SendHabitNotification;
 import greencity.message.SendReportEmailMessage;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-
 import static greencity.constant.AppConstant.AUTHORIZATION;
 
 @RequiredArgsConstructor
@@ -119,20 +113,6 @@ public class RestClient {
         return restTemplate.exchange(greenCityUserServerAddress
             + RestTemplateLinks.USER_FIND_BY_ID + RestTemplateLinks.ID + id, HttpMethod.GET, entity, UserVO.class)
             .getBody();
-    }
-
-    /**
-     * Method that allow you to find {@link UserVO} by ID.
-     *
-     * @param id a value of {@link Long}
-     * @return {@link UserVO}
-     * @author Orest Mamchuk
-     */
-    public UserVOAchievement findUserForAchievement(Long id) {
-        HttpEntity<String> entity = new HttpEntity<>(setHeader());
-        return restTemplate.exchange(greenCityUserServerAddress
-            + RestTemplateLinks.USER_FIND_BY_ID_FOR_ACHIEVEMENT + RestTemplateLinks.ID + id,
-            HttpMethod.GET, entity, UserVOAchievement.class).getBody();
     }
 
     /**
@@ -394,20 +374,6 @@ public class RestClient {
             .getBody();
     }
 
-    /**
-     * send notification to the event organizer about the EventComment addition.
-     *
-     * @param message with information for sending email about adding new
-     *                EventComment.
-     * @author Inna Yashna
-     */
-    public void sendNewEventComment(EventCommentForSendEmailDto message) {
-        HttpHeaders headers = setHeader();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        HttpEntity<EventCommentForSendEmailDto> entity = new HttpEntity<>(message, headers);
-        restTemplate.exchange(greenCityUserServerAddress
-            + RestTemplateLinks.ADD_EVENT_COMMENT, HttpMethod.POST, entity, Object.class);
-    }
 
     /**
      * send SendReportEmailMessage to GreenCityUser.

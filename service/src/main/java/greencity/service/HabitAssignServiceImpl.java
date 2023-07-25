@@ -1,6 +1,5 @@
 package greencity.service;
 
-import greencity.achievement.AchievementCalculation;
 import greencity.constant.AppConstant;
 import greencity.constant.ErrorMessage;
 import greencity.dto.habit.HabitAssignCustomPropertiesDto;
@@ -41,7 +40,6 @@ import greencity.enums.AchievementCategoryType;
 import greencity.enums.AchievementType;
 import greencity.enums.HabitAssignStatus;
 import greencity.enums.ShoppingListItemStatus;
-
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.time.temporal.ChronoUnit;
@@ -53,7 +51,6 @@ import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
 import greencity.exception.exceptions.BadRequestException;
 import greencity.exception.exceptions.InvalidStatusException;
 import greencity.exception.exceptions.NotFoundException;
@@ -96,7 +93,6 @@ public class HabitAssignServiceImpl implements HabitAssignService {
     private final CustomShoppingListItemService customShoppingListItemService;
     private final HabitStatisticService habitStatisticService;
     private final HabitStatusCalendarService habitStatusCalendarService;
-    private final AchievementCalculation achievementCalculation;
     private final ModelMapper modelMapper;
 
     /**
@@ -745,14 +741,9 @@ public class HabitAssignServiceImpl implements HabitAssignService {
 
         int habitStreak = countNewHabitStreak(habitAssign.getHabitStatusCalendars());
         habitAssign.setHabitStreak(habitStreak);
-        CompletableFuture.runAsync(() -> achievementCalculation
-            .calculateAchievement(userId, AchievementType.COMPARISON,
-                AchievementCategoryType.HABIT_STREAK, habitStreak));
 
         if (isHabitAcquired(habitAssign)) {
             habitAssign.setStatus(HabitAssignStatus.ACQUIRED);
-            CompletableFuture.runAsync(() -> achievementCalculation
-                .calculateAchievement(userId, AchievementType.INCREMENT, AchievementCategoryType.HABIT_STREAK, 0));
         }
         habitAssignRepo.save(habitAssign);
     }

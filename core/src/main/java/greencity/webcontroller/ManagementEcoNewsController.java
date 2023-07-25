@@ -7,7 +7,6 @@ import greencity.annotations.ValidLanguage;
 import greencity.constant.HttpStatuses;
 import greencity.dto.PageableAdvancedDto;
 import greencity.dto.econews.*;
-import greencity.dto.factoftheday.FactOfTheDayTranslationVO;
 import greencity.dto.genericresponse.GenericResponseDto;
 import greencity.dto.habit.HabitManagementDto;
 import greencity.dto.tag.TagDto;
@@ -84,7 +83,7 @@ public class ManagementEcoNewsController {
     }
 
     /**
-     * Method which detele {@link EcoNewsVO} and {@link FactOfTheDayTranslationVO}
+     * Method which detele {@link EcoNewsVO}
      * by given id.
      *
      * @param id of Eco New
