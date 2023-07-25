@@ -66,7 +66,6 @@ import greencity.entity.HabitStatistic;
 import greencity.entity.HabitStatusCalendar;
 import greencity.entity.HabitTranslation;
 import greencity.entity.Language;
-import greencity.entity.Location;
 import greencity.entity.ShoppingListItem;
 import greencity.entity.Specification;
 import greencity.entity.Tag;
