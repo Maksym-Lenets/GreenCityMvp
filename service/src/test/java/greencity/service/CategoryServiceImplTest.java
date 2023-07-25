@@ -3,7 +3,6 @@ package greencity.service;
 import greencity.dto.category.CategoryDto;
 import greencity.dto.category.CategoryDtoResponse;
 import greencity.entity.Category;
-import greencity.entity.Place;
 import greencity.exception.exceptions.BadCategoryRequestException;
 import greencity.exception.exceptions.BadRequestException;
 import greencity.exception.exceptions.NotFoundException;

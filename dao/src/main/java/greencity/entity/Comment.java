@@ -29,16 +29,10 @@ public class Comment {
     private User user;
 
     @ManyToOne
-    private Place place;
-
-    @ManyToOne
     private Comment parentComment;
 
     @OneToMany(mappedBy = "parentComment", cascade = {CascadeType.ALL})
     private List<Comment> comments = new ArrayList<>();
-
-    @OneToMany(mappedBy = "comment", cascade = {CascadeType.ALL})
-    private List<Photo> photos = new ArrayList<>();
 
     @OneToOne(cascade = CascadeType.ALL)
     private Estimate estimate;

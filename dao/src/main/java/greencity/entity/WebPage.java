@@ -21,7 +21,4 @@ public class WebPage {
 
     @Column(name = "web_page", nullable = false, unique = true)
     private String page;
-
-    @ManyToMany
-    private List<Place> places = new ArrayList<>();
 }

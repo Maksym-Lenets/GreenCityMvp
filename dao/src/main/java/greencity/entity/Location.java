@@ -28,7 +28,4 @@ public class Location {
 
     @Column(nullable = false)
     private String addressUa;
-
-    @OneToOne(mappedBy = "location")
-    private Place place;
 }
