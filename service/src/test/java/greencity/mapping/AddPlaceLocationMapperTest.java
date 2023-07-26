@@ -8,7 +8,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import greencity.ModelUtils;
 import greencity.dto.location.AddPlaceLocation;
-import greencity.entity.Location;
 
 @ExtendWith(MockitoExtension.class)
 class AddPlaceLocationMapperTest {
