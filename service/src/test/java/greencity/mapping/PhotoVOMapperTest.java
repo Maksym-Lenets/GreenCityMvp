@@ -2,8 +2,6 @@ package greencity.mapping;
 
 import greencity.dto.photo.PhotoVO;
 import greencity.entity.Comment;
-import greencity.entity.Photo;
-import greencity.entity.Place;
 import greencity.entity.User;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;

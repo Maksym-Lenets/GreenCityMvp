@@ -23,9 +23,6 @@ public class Estimate {
     @ManyToOne
     private User user;
 
-    @ManyToOne
-    private Place place;
-
     @OneToOne
     private Comment comment;
 }

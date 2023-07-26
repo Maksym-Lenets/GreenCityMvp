@@ -26,7 +26,4 @@ public class BreakTime {
     @Column(nullable = false)
     @DateTimeFormat(pattern = "HH:mm")
     private LocalTime endTime;
-
-    @OneToOne(mappedBy = "breakTime")
-    private OpeningHours openingHours;
 }

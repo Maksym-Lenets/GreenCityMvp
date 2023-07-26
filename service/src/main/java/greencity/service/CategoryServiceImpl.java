@@ -113,10 +113,6 @@ public class CategoryServiceImpl implements CategoryService {
         log.info(LogMessage.IN_DELETE_BY_ID, id);
         Category category = modelMapper.map(findById(id), Category.class);
 
-        if (!category.getPlaces().isEmpty()) {
-            throw new BadRequestException(ErrorMessage.NOT_SAVE_DELETION);
-        }
-
         categoryRepo.delete(category);
         return id;
     }
