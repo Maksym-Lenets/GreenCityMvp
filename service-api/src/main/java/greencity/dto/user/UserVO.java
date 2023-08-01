@@ -5,7 +5,6 @@ import greencity.dto.econewscomment.EcoNewsCommentVO;
 import greencity.dto.language.LanguageVO;
 import greencity.dto.shoppinglistitem.CustomShoppingListItemVO;
 import greencity.dto.ownsecurity.OwnSecurityVO;
-import greencity.dto.socialnetwork.SocialNetworkVO;
 import greencity.dto.useraction.UserActionVO;
 import greencity.dto.verifyemail.VerifyEmailVO;
 import greencity.enums.EmailNotification;
@@ -54,8 +53,6 @@ public class UserVO {
     private EmailNotification emailNotification;
 
     private LocalDateTime dateOfRegistration;
-
-    private List<SocialNetworkVO> socialNetworks;
 
     private List<UserVO> userFriends = new ArrayList<>();
 
