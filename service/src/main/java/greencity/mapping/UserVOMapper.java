@@ -1,6 +1,8 @@
 package greencity.mapping;
 
 import greencity.dto.ownsecurity.OwnSecurityVO;
+import greencity.dto.socialnetwork.SocialNetworkImageVO;
+import greencity.dto.socialnetwork.SocialNetworkVO;
 import greencity.dto.user.UserVO;
 import greencity.dto.useraction.UserActionVO;
 import greencity.dto.verifyemail.VerifyEmailVO;

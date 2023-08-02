@@ -1,6 +1,7 @@
 package greencity.dto.comment;
 
 import greencity.constant.ServiceValidationConstants;
+import greencity.dto.photo.PhotoAddDto;
 import greencity.dto.rate.EstimateAddDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,4 +22,7 @@ public class AddCommentDto {
     private String text;
     @Valid
     private EstimateAddDto estimate;
+    @Valid
+    @Size(max = 3, message = ServiceValidationConstants.BAD_PHOTO_LIST_REQUEST)
+    private List<PhotoAddDto> photos;
 }
