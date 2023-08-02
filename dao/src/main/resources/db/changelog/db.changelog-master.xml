@@ -102,6 +102,7 @@
     <include file="db/changelog/logs/ch-drop-table-achievements-Bokalo.xml"/>
     <include file="/db/changelog/logs/ch-drop-table-achievement-translation-Bokalo.xml"/>
     <include file="/db/changelog/logs/ch-drop-table-achievements-categories-Bokalo.xml"/>
+    <include file="/db/changelog/logs/ch-drop-all-employee-tables-Bokalo.xml"/>
     <include file="db/changelog/logs/ch-add-column-to-crat-room-fedorkiv.xml"/>
     <include file="db/changelog/logs/ch-update-column-status-in-users_friends.xml"/>
     <include file="db/changelog/logs/ch-add-eco_news-Boiarchuk.xml"/>
