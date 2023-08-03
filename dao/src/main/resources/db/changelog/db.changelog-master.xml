@@ -161,5 +161,6 @@
     <include file="db/changelog/logs/ch-add-formatted_address-to-event_dates_locations-Lenets.xml"/>
     <include file="db/changelog/logs/ch-drop-all-employee-tables-Bokalo.xml"/>
     <include file="db/changelog/logs/ch-drop-all-events-tables-Bokalo.xml"/>
+    <include file="db/changelog/logs/ch-drop-table-user-achievemets.xml"/>
 </databaseChangeLog>
 
