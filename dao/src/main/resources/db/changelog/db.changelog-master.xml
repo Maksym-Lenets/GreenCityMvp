@@ -166,5 +166,6 @@
     <include file="db/changelog/logs/ch-drop-all-advices-tables-Bokalo.xml"/>
     <include file="db/changelog/logs/ch-drop-table-break-time-Bokalo.xml"/>
     <include file="db/changelog/logs/ch-drop-all-chat-tables-Bokalo.xml"/>
+    <include file="db/changelog/logs/ch-drop-all-fact-of-the-day-tables-Bokalo.xml"/>
 </databaseChangeLog>
 
