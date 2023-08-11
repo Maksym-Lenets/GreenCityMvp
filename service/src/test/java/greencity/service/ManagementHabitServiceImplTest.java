@@ -46,8 +46,6 @@ class ManagementHabitServiceImplTest {
     @Mock
     private HabitFactService habitFactService;
     @Mock
-    private AdviceService adviceService;
-    @Mock
     private ModelMapper modelMapper;
     @InjectMocks
     private ManagementHabitServiceImpl managementHabitService;
@@ -150,7 +148,6 @@ class ManagementHabitServiceImplTest {
         managementHabitService.delete(1L);
         verify(habitTranslationRepo, times(1)).deleteAllByHabit(habit);
         verify(habitFactService, times(1)).deleteAllByHabit(modelMapper.map(habit, HabitVO.class));
-        verify(adviceService, times(1)).deleteAllByHabit(modelMapper.map(habit, HabitVO.class));
         verify(habitAssignService, times(1)).deleteAllHabitAssignsByHabit(modelMapper.map(habit, HabitVO.class));
         verify(habitRepo, times(1)).delete(habit);
 
@@ -170,7 +167,6 @@ class ManagementHabitServiceImplTest {
         when(modelMapper.map(habit, HabitVO.class)).thenReturn(habitVO);
         doNothing().when(habitTranslationRepo).deleteAllByHabit(habit);
         doNothing().when(habitFactService).deleteAllByHabit(habitVO);
-        doNothing().when(adviceService).deleteAllByHabit(habitVO);
         doNothing().when(habitAssignService).deleteAllHabitAssignsByHabit(habitVO);
         doNothing().when(habitRepo).delete(habit);
         managementHabitService.deleteAll(list);

@@ -167,5 +167,10 @@
     <include file="db/changelog/logs/ch-drop-table-break-time-Bokalo.xml"/>
     <include file="db/changelog/logs/ch-drop-all-chat-tables-Bokalo.xml"/>
     <include file="db/changelog/logs/ch-drop-all-fact-of-the-day-tables-Bokalo.xml"/>
+    <include file="db/changelog/logs/ch-drop-discount-values-table-Bokalo.xml"/>
+    <include file="db/changelog/logs/ch-drop-estimates-table.xml"/>
+    <include file="db/changelog/logs/ch-drop-favorite-places-table.xml"/>
+    <include file="db/changelog/logs/ch-drop-locations-table-Bokalo.xml"/>
+    <include file="db/changelog/logs/ch-drop-opening-hours-table.xml"/>
 </databaseChangeLog>
 

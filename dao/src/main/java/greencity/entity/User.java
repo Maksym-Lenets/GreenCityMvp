@@ -137,8 +137,6 @@ public class User {
     @OneToOne(mappedBy = "user")
     private RestorePasswordEmail restorePasswordEmail;
 
-    @OneToMany(mappedBy = "user")
-    private List<Estimate> estimates = new ArrayList<>();
     @Enumerated(value = EnumType.ORDINAL)
     private EmailNotification emailNotification;
 
