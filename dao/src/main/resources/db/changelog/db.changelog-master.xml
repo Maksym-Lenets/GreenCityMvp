@@ -163,5 +163,7 @@
     <include file="db/changelog/logs/ch-drop-all-events-tables-Bokalo.xml"/>
     <include file="db/changelog/logs/ch-drop-table-user-achievemets.xml"/>
     <include file="db/changelog/logs/ch-drop-all-positions-tables.xml"/>
+    <include file="db/changelog/logs/ch-drop-all-advices-tables-Bokalo.xml"/>
+    <include file="db/changelog/logs/ch-drop-table-break-time-Bokalo.xml"/>
 </databaseChangeLog>
 

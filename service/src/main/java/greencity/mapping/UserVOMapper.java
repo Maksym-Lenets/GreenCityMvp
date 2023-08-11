@@ -2,7 +2,6 @@ package greencity.mapping;
 
 import greencity.dto.ownsecurity.OwnSecurityVO;
 import greencity.dto.user.UserVO;
-import greencity.dto.useraction.UserActionVO;
 import greencity.dto.verifyemail.VerifyEmailVO;
 import greencity.entity.User;
 import org.modelmapper.AbstractConverter;
@@ -54,15 +53,6 @@ public class UserVOMapper extends AbstractConverter<User, UserVO> {
             .showShoppingList(user.getShowShoppingList())
             .showEcoPlace(user.getShowEcoPlace())
             .showLocation(user.getShowLocation())
-            .userActions(user.getUserActions() != null ? user.getUserActions()
-                .stream().map(userAction -> UserActionVO.builder()
-                    .id(userAction.getId())
-                    .count(userAction.getCount())
-                    .user(UserVO.builder()
-                        .id(userAction.getUser().getId())
-                        .build())
-                    .build())
-                .collect(Collectors.toList()) : new ArrayList<>())
             .build();
     }
 }

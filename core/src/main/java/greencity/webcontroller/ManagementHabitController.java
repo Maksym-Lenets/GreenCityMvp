@@ -36,7 +36,6 @@ public class ManagementHabitController {
     private final LanguageService languageService;
     private final HabitFactService habitFactService;
     private final ShoppingListItemService shoppingListItemService;
-    private final AdviceService adviceService;
     private final HabitAssignService habitAssignService;
 
     /**
@@ -101,7 +100,6 @@ public class ManagementHabitController {
         model.addAttribute("hfacts", habitFactService.getAllHabitFactsVO(pageable));
         model.addAttribute("hshops", shoppingListItemService.getShoppingListByHabitId(id));
         model.addAttribute("habit", managementHabitService.getById(id));
-        model.addAttribute("hadvices", adviceService.getAllByHabitIdAndLanguage(id, locale.getLanguage()));
         model.addAttribute("acquired",
             habitAssignService.getNumberHabitAssignsByHabitIdAndStatus(id, HabitAssignStatus.ACQUIRED));
         model.addAttribute("inProgress",

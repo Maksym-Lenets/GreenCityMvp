@@ -191,8 +191,5 @@ public class User {
     private Double eventOrganizerRating;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<UserAction> userActions = new ArrayList<>();
-
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Filter> filters = new ArrayList<>();
 }
