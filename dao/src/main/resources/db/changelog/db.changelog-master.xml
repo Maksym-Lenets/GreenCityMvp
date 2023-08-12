@@ -172,5 +172,7 @@
     <include file="db/changelog/logs/ch-drop-favorite-places-table.xml"/>
     <include file="db/changelog/logs/ch-drop-locations-table-Bokalo.xml"/>
     <include file="db/changelog/logs/ch-drop-opening-hours-table.xml"/>
+    <include file="db/changelog/logs/ch-drop-photo-table-Bokalo.xml"/>
+    <include file="db/changelog/logs/ch-drop-places-table-Bokalo.xml"/>
 </databaseChangeLog>
 
