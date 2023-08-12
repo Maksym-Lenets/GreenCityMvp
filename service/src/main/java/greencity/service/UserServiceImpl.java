@@ -199,16 +199,6 @@ public class UserServiceImpl implements UserService {
      * {@inheritDoc}
      */
     @Override
-    public List<UserVO> getSixFriendsWithTheHighestRating(Long userId) {
-        return userRepo.getSixFriendsWithTheHighestRating(userId).stream()
-            .map(user -> modelMapper.map(user, UserVO.class))
-            .collect(Collectors.toList());
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
     public void updateEventOrganizerRating(Long eventOrganizerId, Double rate) {
         userRepo.updateUserEventOrganizerRating(eventOrganizerId, rate);
     }

@@ -96,14 +96,6 @@ public interface UserService {
     String getInitialsById(Long userId);
 
     /**
-     * Method that returns {@link List} of top 6 friends with highest rating.
-     *
-     * @param userId - {@link UserVO}'s id
-     * @return {@link List} of {@link UserVO} instances
-     */
-    List<UserVO> getSixFriendsWithTheHighestRating(Long userId);
-
-    /**
      * Method for updating user event organizer rating.
      *
      * @param userId - {@link UserVO}'s id
