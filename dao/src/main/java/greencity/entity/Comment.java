@@ -34,9 +34,6 @@ public class Comment {
     @OneToMany(mappedBy = "parentComment", cascade = {CascadeType.ALL})
     private List<Comment> comments = new ArrayList<>();
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private Estimate estimate;
-
     @CreatedDate
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdDate;

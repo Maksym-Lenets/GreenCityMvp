@@ -5,7 +5,6 @@ import greencity.dto.econewscomment.EcoNewsCommentVO;
 import greencity.dto.language.LanguageVO;
 import greencity.dto.shoppinglistitem.CustomShoppingListItemVO;
 import greencity.dto.ownsecurity.OwnSecurityVO;
-import greencity.dto.useraction.UserActionVO;
 import greencity.dto.verifyemail.VerifyEmailVO;
 import greencity.enums.EmailNotification;
 import greencity.enums.Role;
@@ -77,8 +76,6 @@ public class UserVO {
     private Boolean showShoppingList;
 
     private LocalDateTime lastActivityTime;
-
-    private List<UserActionVO> userActions = new ArrayList<>();
 
     private LanguageVO languageVO;
 }

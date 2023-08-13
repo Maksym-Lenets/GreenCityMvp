@@ -137,8 +137,6 @@ public class User {
     @OneToOne(mappedBy = "user")
     private RestorePasswordEmail restorePasswordEmail;
 
-    @OneToMany(mappedBy = "user")
-    private List<Estimate> estimates = new ArrayList<>();
     @Enumerated(value = EnumType.ORDINAL)
     private EmailNotification emailNotification;
 
@@ -189,9 +187,6 @@ public class User {
 
     @Column(name = "event_organizer_rating")
     private Double eventOrganizerRating;
-
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<UserAction> userActions = new ArrayList<>();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Filter> filters = new ArrayList<>();
