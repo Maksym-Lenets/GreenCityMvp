@@ -396,7 +396,6 @@ class RestClientTest {
             + RestTemplateLinks.SEND_REPORT, HttpMethod.POST, entity, Object.class);
     }
 
-
     @Test
     void sendHabitNotification() {
         SendHabitNotification notification = ModelUtils.getSendHabitNotification();
