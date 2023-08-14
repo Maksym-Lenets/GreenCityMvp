@@ -61,7 +61,6 @@ class UserServiceImplTest {
         .emailNotification(EmailNotification.DISABLED)
         .lastActivityTime(LocalDateTime.of(2020, 10, 10, 20, 10, 10))
         .dateOfRegistration(LocalDateTime.now())
-        .socialNetworks(new ArrayList<>())
         .build();
 
     @Test
@@ -106,27 +105,6 @@ class UserServiceImplTest {
         when(userRepo.findLastActivityTimeById(anyLong())).thenReturn(Optional.empty());
 
         assertFalse(userService.checkIfTheUserIsOnline(1L));
-    }
-
-    @Test
-    void getSixFriendsWithTheHighestRatingTest() {
-        List<User> friendsList = ModelUtils.getFriendsList();
-        User user = User.builder()
-            .id(1L)
-            .userFriends(friendsList)
-            .build();
-
-        userVO.setUserFriends(friendsList.stream()
-            .map(friend -> modelMapper.map(friend, UserVO.class))
-            .collect(Collectors.toList()));
-
-        when(userRepo.getSixFriendsWithTheHighestRating(user.getId())).thenReturn(user.getUserFriends().stream()
-            .sorted((f1, f2) -> f2.getRating().compareTo(f1.getRating()))
-            .limit(6)
-            .collect(Collectors.toList()));
-
-        assertEquals(userVO.getUserFriends().subList(2, 8),
-            userService.getSixFriendsWithTheHighestRating(user.getId()));
     }
 
     @Test
