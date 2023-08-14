@@ -2,8 +2,6 @@ package greencity;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import greencity.constant.AppConstant;
-import greencity.dto.advice.AdvicePostDto;
-import greencity.dto.breaktime.BreakTimeDto;
 import greencity.dto.econews.AddEcoNewsDtoRequest;
 import greencity.dto.econews.AddEcoNewsDtoResponse;
 import greencity.dto.econews.EcoNewsDto;
@@ -27,9 +25,7 @@ import greencity.dto.habittranslation.HabitTranslationDto;
 import greencity.dto.language.LanguageDTO;
 import greencity.dto.language.LanguageTranslationDTO;
 import greencity.dto.language.LanguageVO;
-import greencity.dto.location.LocationAddressAndGeoDto;
 import greencity.dto.newssubscriber.NewsSubscriberRequestDto;
-import greencity.dto.openhours.OpeningHoursDto;
 import greencity.dto.shoppinglistitem.CustomShoppingListItemResponseDto;
 import greencity.dto.shoppinglistitem.ShoppingListItemPostDto;
 import greencity.dto.shoppinglistitem.ShoppingListItemRequestDto;
@@ -186,28 +182,8 @@ public class ModelUtils {
             .build();
     }
 
-    public static LocationAddressAndGeoDto getLocationAddressAndGeoDto() {
-        return LocationAddressAndGeoDto.builder()
-            .address("address")
-            .lat(12.12d)
-            .lng(12.12d)
-            .build();
-    }
-
     public static LocalTime getLocalTime() {
         return LocalTime.of(7, 20, 45, 342123342);
-    }
-
-    public static OpeningHoursDto getOpeningHoursDto() {
-        OpeningHoursDto openingHours = new OpeningHoursDto();
-        openingHours.setOpenTime(getLocalTime());
-        openingHours.setCloseTime(getLocalTime());
-        openingHours.setBreakTime(BreakTimeDto.builder()
-            .startTime(getLocalTime())
-            .endTime(getLocalTime())
-            .build());
-        openingHours.setWeekDay(DayOfWeek.MONDAY);
-        return openingHours;
     }
 
     public static Specification getSpecification() {
@@ -354,10 +330,6 @@ public class ModelUtils {
             new LanguageTranslationDTO(new LanguageDTO(1L, "en"), "hello"),
             new LanguageTranslationDTO(new LanguageDTO(1L, "en"), "text"),
             new LanguageTranslationDTO(new LanguageDTO(1L, "en"), "smile"));
-    }
-
-    public static AdvicePostDto getAdvicePostDto() {
-        return new AdvicePostDto(getLanguageTranslationsDTOs(), new HabitIdRequestDto(1L));
     }
 
     public static ShoppingListItemPostDto getShoppingListItemPostDto() {
