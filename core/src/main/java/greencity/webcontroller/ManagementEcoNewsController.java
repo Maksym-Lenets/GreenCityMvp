@@ -83,8 +83,7 @@ public class ManagementEcoNewsController {
     }
 
     /**
-     * Method which detele {@link EcoNewsVO}
-     * by given id.
+     * Method which detele {@link EcoNewsVO} by given id.
      *
      * @param id of Eco New
      * @return {@link ResponseEntity}

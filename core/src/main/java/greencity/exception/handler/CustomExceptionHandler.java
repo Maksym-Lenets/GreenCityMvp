@@ -278,7 +278,6 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
             .body(Collections.singletonList(validationExceptionDto));
     }
 
-
     /**
      * Method intercept exception {@link BadSocialNetworkLinksException}.
      *

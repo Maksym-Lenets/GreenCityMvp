@@ -1,6 +1,5 @@
 package greencity.dto.user;
 
-
 import greencity.enums.Role;
 import lombok.*;
 
