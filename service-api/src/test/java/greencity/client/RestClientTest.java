@@ -9,13 +9,10 @@ import com.google.gson.Gson;
 import greencity.ModelUtils;
 import greencity.constant.RestTemplateLinks;
 import greencity.dto.PageableAdvancedDto;
-import greencity.dto.achievement.UserVOAchievement;
 import greencity.dto.econews.EcoNewsForSendEmailDto;
-import greencity.dto.eventcomment.EventCommentForSendEmailDto;
 import greencity.enums.EmailNotification;
 import greencity.message.SendHabitNotification;
 import greencity.message.SendReportEmailMessage;
-
 import java.util.*;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -75,20 +72,6 @@ class RestClientTest {
             + RestTemplateLinks.USER_FIND_BY_ID + RestTemplateLinks.ID + 1L, HttpMethod.GET, entity, UserVO.class))
                 .thenReturn(ResponseEntity.ok(userVO));
         assertEquals(userVO, restClient.findById(1L));
-    }
-
-    @Test
-    void findUserForAchievement() {
-        String accessToken = "accessToken";
-        HttpHeaders headers = new HttpHeaders();
-        headers.set(AUTHORIZATION, accessToken);
-        HttpEntity<String> entity = new HttpEntity<>(headers);
-        UserVOAchievement userVOAchievement = new UserVOAchievement();
-        when(httpServletRequest.getHeader(AUTHORIZATION)).thenReturn(accessToken);
-        when(restTemplate.exchange(greenCityUserServerAddress
-            + RestTemplateLinks.USER_FIND_BY_ID_FOR_ACHIEVEMENT + RestTemplateLinks.ID + 1L,
-            HttpMethod.GET, entity, UserVOAchievement.class)).thenReturn(ResponseEntity.ok(userVOAchievement));
-        assertEquals(userVOAchievement, restClient.findUserForAchievement(1L));
     }
 
     @Test
@@ -364,24 +347,6 @@ class RestClientTest {
     }
 
     @Test
-    void sendNewEventComment() {
-        EventCommentForSendEmailDto message = ModelUtils.getEventCommentForSendEmailDto();
-        HttpHeaders httpHeaders = new HttpHeaders();
-        String accessToken = "accessToken";
-        httpHeaders.setContentType(MediaType.APPLICATION_JSON);
-        httpHeaders.set(AUTHORIZATION, accessToken);
-        HttpEntity<EventCommentForSendEmailDto> entity = new HttpEntity<>(message, httpHeaders);
-        when(httpServletRequest.getHeader(AUTHORIZATION)).thenReturn(accessToken);
-        when(restTemplate.exchange(greenCityUserServerAddress
-            + RestTemplateLinks.ADD_EVENT_COMMENT, HttpMethod.POST, entity, Object.class))
-                .thenReturn(ResponseEntity.ok(Object));
-        restClient.sendNewEventComment(message);
-
-        verify(restTemplate).exchange(greenCityUserServerAddress
-            + RestTemplateLinks.ADD_EVENT_COMMENT, HttpMethod.POST, entity, Object.class);
-    }
-
-    @Test
     void sendReport() {
         SendReportEmailMessage message = ModelUtils.getSendReportEmailMessage();
         HttpHeaders headers = new HttpHeaders();
@@ -395,7 +360,6 @@ class RestClientTest {
         verify(restTemplate).exchange(greenCityUserServerAddress
             + RestTemplateLinks.SEND_REPORT, HttpMethod.POST, entity, Object.class);
     }
-
 
     @Test
     void sendHabitNotification() {

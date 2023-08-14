@@ -68,7 +68,7 @@ class SpecificationServiceImplTest {
     @Test
     void findAllTest() {
         List<Specification> expected = new ArrayList<>(Arrays.asList(
-            new Specification(1L, "spec", null)));
+            new Specification(1L, "spec")));
         List<SpecificationVO> expectedVO = Arrays.asList(new SpecificationVO(1L, "spec"));
 
         when(specificationRepo.findAll()).thenReturn(expected);

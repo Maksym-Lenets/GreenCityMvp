@@ -374,7 +374,6 @@ public class RestClient {
             .getBody();
     }
 
-
     /**
      * send SendReportEmailMessage to GreenCityUser.
      *
@@ -402,8 +401,6 @@ public class RestClient {
         restTemplate.exchange(greenCityUserServerAddress + RestTemplateLinks.DELETE_DEACTIVATED_USERS,
             HttpMethod.POST, entity, Object.class).getBody();
     }
-
-
 
     /**
      * send SendHabitNotification to GreenCityUser.
