@@ -1,12 +1,8 @@
 package greencity.mapping;
 
 import greencity.ModelUtils;
-import greencity.dto.socialnetwork.SocialNetworkImageVO;
-import greencity.dto.socialnetwork.SocialNetworkVO;
 import greencity.dto.user.UserVO;
 import greencity.entity.*;
-
-import java.util.ArrayList;
 import java.util.stream.Collectors;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
@@ -55,21 +51,6 @@ class UserVOMapperTest {
             .showShoppingList(expected.getShowShoppingList())
             .showEcoPlace(expected.getShowEcoPlace())
             .showLocation(expected.getShowLocation())
-            .socialNetworks(expected.getSocialNetworks() != null ? expected.getSocialNetworks()
-                .stream().map(socialNetwork -> SocialNetwork.builder()
-                    .id(socialNetwork.getId())
-                    .url(socialNetwork.getUrl())
-                    .user(User.builder()
-                        .id(socialNetwork.getUser().getId())
-                        .email(socialNetwork.getUser().getEmail())
-                        .build())
-                    .socialNetworkImage(SocialNetworkImage.builder()
-                        .id(socialNetwork.getSocialNetworkImage().getId())
-                        .imagePath(socialNetwork.getSocialNetworkImage().getImagePath())
-                        .hostPath(socialNetwork.getSocialNetworkImage().getHostPath())
-                        .build())
-                    .build())
-                .collect(Collectors.toList()) : new ArrayList<>())
             .ownSecurity(expected.getOwnSecurity() != null ? OwnSecurity.builder()
                 .id(expected.getOwnSecurity().getId())
                 .password(expected.getOwnSecurity().getPassword())
@@ -79,30 +60,6 @@ class UserVOMapperTest {
                     .build())
                 .build() : null)
             .lastActivityTime(expected.getLastActivityTime())
-            .userAchievements(expected.getUserAchievements() != null ? expected.getUserAchievements()
-                .stream().map(userAchievement -> UserAchievement.builder()
-                    .id(userAchievement.getId())
-                    .achievementStatus(userAchievement.getAchievementStatus())
-                    .user(User.builder()
-                        .id(userAchievement.getUser().getId())
-                        .build())
-                    .achievement(Achievement.builder()
-                        .id(userAchievement.getAchievement().getId())
-                        .build())
-                    .build())
-                .collect(Collectors.toList()) : new ArrayList<>())
-            .userActions(expected.getUserActions() != null ? expected.getUserActions()
-                .stream().map(userAction -> UserAction.builder()
-                    .id(userAction.getId())
-                    .achievementCategory(AchievementCategory.builder()
-                        .id(userAction.getAchievementCategory().getId())
-                        .build())
-                    .count(userAction.getCount())
-                    .user(User.builder()
-                        .id(userAction.getUser().getId())
-                        .build())
-                    .build())
-                .collect(Collectors.toList()) : new ArrayList<>())
             .build();
 
         assertEquals(expected, mapper.convert(userToBeConverted));

@@ -4,12 +4,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-
 import greencity.ModelUtils;
-import greencity.dto.language.LanguageDTO;
-import greencity.dto.language.LanguageTranslationDTO;
 import greencity.dto.tag.NewTagDto;
-import greencity.entity.HabitFactTranslation;
 import greencity.entity.Tag;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
