@@ -25,7 +25,6 @@ import greencity.dto.habittranslation.HabitTranslationDto;
 import greencity.dto.language.LanguageDTO;
 import greencity.dto.language.LanguageTranslationDTO;
 import greencity.dto.language.LanguageVO;
-import greencity.dto.newssubscriber.NewsSubscriberRequestDto;
 import greencity.dto.shoppinglistitem.CustomShoppingListItemResponseDto;
 import greencity.dto.shoppinglistitem.ShoppingListItemPostDto;
 import greencity.dto.shoppinglistitem.ShoppingListItemRequestDto;
@@ -247,10 +246,6 @@ public class ModelUtils {
 
     public static Principal getPrincipal() {
         return () -> "test@gmail.com";
-    }
-
-    public static NewsSubscriberRequestDto getNewsSubscriberRequestDto() {
-        return new NewsSubscriberRequestDto("test@gmail.com");
     }
 
     public static UserProfilePictureDto getUserProfilePictureDto() {

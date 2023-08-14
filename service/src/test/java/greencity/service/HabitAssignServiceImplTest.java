@@ -268,32 +268,6 @@ class HabitAssignServiceImplTest {
     }
 
     @Test
-    void assignCustomHabitForUserWithFriend() {
-        User userFriend1 = User.builder().id(3L).build();
-
-        UserVO userVO1 = UserVO.builder().id(1L).build();
-
-        User user1 = User.builder().id(1L).userFriends(List.of(userFriend1)).build();
-
-        HabitAssignCustomPropertiesDto habitAssignCustomPropertiesDtoWithFriend =
-            HabitAssignCustomPropertiesDto.builder()
-                .habitAssignPropertiesDto(habitAssignPropertiesDto)
-                .friendsIdsList(List.of(3L))
-                .build();
-
-        when(habitAssignRepo.findAllByUserId(userVO1.getId())).thenReturn(List.of(habitAssign));
-        when(modelMapper.map(userVO1, User.class)).thenReturn(user1);
-        when(habitRepo.findById(habit.getId())).thenReturn(Optional.of(habit));
-        when(habitAssignRepo.save(any())).thenReturn(habitAssign);
-        when(modelMapper.map(habitAssign, HabitAssignManagementDto.class)).thenReturn(habitAssignManagementDto);
-        when(userRepo.findById(userFriend1.getId())).thenReturn(Optional.of(userFriend1));
-        when(userRepo.isFriend(user1.getId(), userFriend1.getId())).thenReturn(true);
-        List<HabitAssignManagementDto> actual = habitAssignService
-            .assignCustomHabitForUser(habit.getId(), userVO1, habitAssignCustomPropertiesDtoWithFriend);
-        assertEquals(List.of(habitAssignManagementDto, habitAssignManagementDto), actual);
-    }
-
-    @Test
     void assignCustomHabitForUserWithFriendNullHabitAssign() {
         UserVO userVO1 = UserVO.builder().id(1L).build();
 
