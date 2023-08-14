@@ -9,7 +9,6 @@ import greencity.exception.exceptions.NotFoundException;
 import greencity.repository.CategoryRepo;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -39,7 +38,6 @@ class CategoryServiceImplTest {
     private Category category = Category.builder()
         .id(1L)
         .name("Test")
-        .places(Collections.emptyList())
         .build();
     private CategoryDtoResponse categoryDtoResponse = CategoryDtoResponse.builder()
         .id(1L)
@@ -172,17 +170,6 @@ class CategoryServiceImplTest {
         Assertions
             .assertThrows(NotFoundException.class,
                 () -> categoryService.deleteById(null));
-    }
-
-    @Test
-    void deleteByIdGivenCategoryRelatedToExistencePlaceThrowException() {
-        Category generatedEntity = Category.builder().places(Collections.singletonList(new Place())).build();
-        when(categoryRepo.findById(anyLong())).thenReturn(Optional.of(generatedEntity));
-        when(modelMapper.map(generatedEntity, CategoryDtoResponse.class)).thenReturn(categoryDtoResponse);
-        when(modelMapper.map(categoryDtoResponse, Category.class)).thenReturn(generatedEntity);
-        Assertions
-            .assertThrows(BadRequestException.class,
-                () -> categoryService.deleteById(1L));
     }
 
     @Test
