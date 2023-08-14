@@ -100,7 +100,6 @@ class ShoppingListItemServiceImplTest {
         .emailNotification(EmailNotification.DISABLED)
         .lastActivityTime(LocalDateTime.of(2020, 10, 10, 20, 10, 10))
         .dateOfRegistration(LocalDateTime.now())
-        .socialNetworks(new ArrayList<>())
         .build();
 
     private String language = "uk";
@@ -108,16 +107,14 @@ class ShoppingListItemServiceImplTest {
     private List<ShoppingListItemTranslation> shoppingListItemTranslations = Arrays.asList(
         ShoppingListItemTranslation.builder()
             .id(1L)
-            .language(new Language(1L, language, Collections.emptyList(), Collections.emptyList(),
-                Collections.emptyList(), Collections.emptyList()))
+            .language(new Language(1L, language, Collections.emptyList(), Collections.emptyList()))
             .content("TEST")
             .shoppingListItem(
                 new ShoppingListItem(1L, Collections.emptyList(), Collections.emptySet(), Collections.emptyList()))
             .build(),
         ShoppingListItemTranslation.builder()
             .id(2L)
-            .language(new Language(1L, language, Collections.emptyList(), Collections.emptyList(),
-                Collections.emptyList(), Collections.emptyList()))
+            .language(new Language(1L, language, Collections.emptyList(), Collections.emptyList()))
             .content("TEST")
             .shoppingListItem(
                 new ShoppingListItem(2L, Collections.emptyList(), Collections.emptySet(), Collections.emptyList()))
