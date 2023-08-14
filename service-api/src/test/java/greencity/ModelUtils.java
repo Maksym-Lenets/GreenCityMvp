@@ -3,10 +3,6 @@ package greencity;
 import greencity.dto.category.CategoryDto;
 import greencity.dto.econews.AddEcoNewsDtoResponse;
 import greencity.dto.econews.EcoNewsForSendEmailDto;
-import greencity.dto.event.EventAuthorDto;
-import greencity.dto.event.EventDto;
-import greencity.dto.eventcomment.EventCommentAuthorDto;
-import greencity.dto.eventcomment.EventCommentForSendEmailDto;
 import greencity.dto.habit.AddCustomHabitDtoRequest;
 import greencity.dto.habit.AddCustomHabitDtoResponse;
 import greencity.dto.habit.UserShoppingAndCustomShoppingListsDto;
@@ -105,41 +101,7 @@ public class ModelUtils {
             .build();
     }
 
-    public static EventCommentForSendEmailDto getEventCommentForSendEmailDto() {
-        return EventCommentForSendEmailDto.builder()
-            .id(1L)
-            .organizer(ModelUtils.getEventAuthorDto())
-            .createdDate(LocalDateTime.now())
-            .author(ModelUtils.getEventCommentAuthorDto())
-            .text("text")
-            .build();
-    }
-
-    public static EventAuthorDto getEventAuthorDto() {
-        return EventAuthorDto.builder()
-            .id(1L)
-            .name("Inna")
-            .organizerRating(1.0)
-            .build();
-    }
-
-    public static EventCommentAuthorDto getEventCommentAuthorDto() {
-        return EventCommentAuthorDto.builder()
-            .id(ModelUtils.getUserVO().getId())
-            .name(ModelUtils.getUserVO().getName().trim())
-            .userProfilePicturePath(ModelUtils.getUserVO().getProfilePicturePath())
-            .build();
-    }
-
     public static TagUaEnDto tagUaEnDto = TagUaEnDto.builder().id(1L).nameUa("Сщціальний").nameEn("Social").build();
-
-    public static EventDto getEventDtoWithTag() {
-        return EventDto.builder().id(1L).tags(List.of(tagUaEnDto)).build();
-    }
-
-    public static EventDto getEventDtoWithoutTag() {
-        return EventDto.builder().id(1L).build();
-    }
 
     public static UserShoppingListItemResponseDto getUserShoppingListItemResponseDto() {
         return UserShoppingListItemResponseDto.builder()
