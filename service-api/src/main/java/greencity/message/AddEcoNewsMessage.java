@@ -1,7 +1,6 @@
 package greencity.message;
 
 import greencity.dto.econews.AddEcoNewsDtoResponse;
-import greencity.dto.newssubscriber.NewsSubscriberResponseDto;
 import java.io.Serializable;
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -17,6 +16,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class AddEcoNewsMessage implements Serializable {
-    private List<NewsSubscriberResponseDto> subscribers;
     private AddEcoNewsDtoResponse addEcoNewsDtoResponse;
 }
