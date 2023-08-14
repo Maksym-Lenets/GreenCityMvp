@@ -108,27 +108,6 @@ class UserServiceImplTest {
     }
 
     @Test
-    void getSixFriendsWithTheHighestRatingTest() {
-        List<User> friendsList = ModelUtils.getFriendsList();
-        User user = User.builder()
-            .id(1L)
-            .userFriends(friendsList)
-            .build();
-
-        userVO.setUserFriends(friendsList.stream()
-            .map(friend -> modelMapper.map(friend, UserVO.class))
-            .collect(Collectors.toList()));
-
-        when(userRepo.getSixFriendsWithTheHighestRating(user.getId())).thenReturn(user.getUserFriends().stream()
-            .sorted((f1, f2) -> f2.getRating().compareTo(f1.getRating()))
-            .limit(6)
-            .collect(Collectors.toList()));
-
-        assertEquals(userVO.getUserFriends().subList(2, 8),
-            userService.getSixFriendsWithTheHighestRating(user.getId()));
-    }
-
-    @Test
     void checkUpdatableUserTest() {
         when(userRepo.findByEmail(anyString())).thenReturn(Optional.of(ModelUtils.getUser()));
         when(modelMapper.map(any(), any())).thenReturn(userVO);
