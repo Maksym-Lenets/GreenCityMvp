@@ -6,7 +6,6 @@ import greencity.dto.econews.EcoNewsForSendEmailDto;
 import greencity.dto.habit.AddCustomHabitDtoRequest;
 import greencity.dto.habit.AddCustomHabitDtoResponse;
 import greencity.dto.habit.UserShoppingAndCustomShoppingListsDto;
-import greencity.dto.newssubscriber.NewsSubscriberResponseDto;
 import greencity.dto.shoppinglistitem.CustomShoppingListItemResponseDto;
 import greencity.dto.tag.TagUaEnDto;
 import greencity.dto.user.EcoNewsAuthorDto;
@@ -54,13 +53,6 @@ public class ModelUtils {
             .build();
     }
 
-    public static NewsSubscriberResponseDto getNewsSubscriberResponseDto() {
-        return NewsSubscriberResponseDto.builder()
-            .email("test@gmail.com")
-            .unsubscribeToken("someUnsubscribeToken")
-            .build();
-    }
-
     public static CategoryDto getCategoryDto() {
         return CategoryDto.builder()
             .name("name")
@@ -84,7 +76,6 @@ public class ModelUtils {
 
     public static AddEcoNewsMessage getAddEcoNewsMessage() {
         return AddEcoNewsMessage.builder()
-            .subscribers(Collections.singletonList(getNewsSubscriberResponseDto()))
             .addEcoNewsDtoResponse(getAddEcoNewsDtoResponse())
             .build();
     }
