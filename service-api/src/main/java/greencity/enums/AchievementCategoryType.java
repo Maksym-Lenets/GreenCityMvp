@@ -9,8 +9,7 @@ public enum AchievementCategoryType {
     ECO_NEWS_LIKE("EcoNewsLikes"),
     ACHIEVEMENTS("Achievements"),
     HABIT_STREAK("HabitStreak"),
-    ACQUIRED_HABIT("AcquiredHabits"),
-    SOCIAL_NETWORK("SocialNetworks");
+    ACQUIRED_HABIT("AcquiredHabits");
 
     private final String category;
 
