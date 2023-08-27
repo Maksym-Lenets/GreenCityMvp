@@ -112,16 +112,8 @@ public final class ErrorMessage {
     public static final String ECO_NEWS_NOT_FOUND_BY_ID = "Eco news doesn't exist by this id: ";
     public static final String ECO_NEWS_NOT_FOUND = "Eco news haven't been found";
     public static final String ECO_NEWS_NOT_SAVED = "Eco news haven't been saved because of constraint violation";
-    public static final String USER_CANNOT_ADD_MORE_THAN_5_SOCIAL_NETWORK_LINKS =
-        "User cannot add more than 5 social network links";
     public static final String INVALID_URI = "The string could not be parsed as a URI reference.";
     public static final String MALFORMED_URL = "Malformed URL. The string could not be parsed.";
-    public static final String USER_CANNOT_ADD_SAME_SOCIAL_NETWORK_LINKS =
-        "User cannot add the same social network links";
-    public static final String SOCIAL_NETWORK_IMAGE_NOT_SAVED = "Social network image hasn't been saved";
-    public static final String SOCIAL_NETWORK_IMAGE_FOUND_BY_ID = "Social network image doesn't exist by this id: ";
-    public static final String BAD_DEFAULT_SOCIAL_NETWORK_IMAGE_PATH =
-        "Bad default social network image host path (Row in database doesn't exists)";
     public static final String PLACE_NOT_FOUND_BY_ID = "The place does not exist by this id: ";
     public static final String PLACE_STATUS_NOT_DIFFERENT = "Place with id: %d already has this status: %s";
     public static final String COMMENT_NOT_FOUND_EXCEPTION = "The comment with entered id doesn't exist";
