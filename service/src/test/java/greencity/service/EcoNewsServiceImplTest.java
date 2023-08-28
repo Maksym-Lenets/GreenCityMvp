@@ -13,7 +13,6 @@ import greencity.dto.PageableDto;
 import greencity.dto.econews.*;
 import greencity.dto.econewscomment.EcoNewsCommentVO;
 import greencity.dto.language.LanguageDTO;
-import greencity.dto.search.SearchNewsDto;
 import greencity.dto.tag.TagVO;
 import greencity.dto.user.UserVO;
 import greencity.entity.EcoNews;
@@ -329,20 +328,6 @@ class EcoNewsServiceImplTest {
     }
 
     @Test
-    void search() {
-        SearchNewsDto searchNewsDto = new SearchNewsDto(1L, "title", null, null, Collections.singletonList("tag"));
-        PageableDto<SearchNewsDto> pageableDto = new PageableDto<>(Collections.singletonList(searchNewsDto), 4, 1, 2);
-        Page<EcoNews> page = new PageImpl<>(Collections.singletonList(ecoNews), PageRequest.of(1, 3), 1);
-
-        when(ecoNewsSearchRepo.find(PageRequest.of(0, 3), "test", "en")).thenReturn(page);
-        when(modelMapper.map(ecoNews, SearchNewsDto.class)).thenReturn(searchNewsDto);
-
-        PageableDto<SearchNewsDto> actual = ecoNewsService.search("test", "en");
-
-        assertEquals(pageableDto, actual);
-    }
-
-    @Test
     void getThreeRecommendedEcoNews() {
         List<EcoNewsDto> dtoList = Collections.singletonList(modelMapper.map(ecoNews, EcoNewsDto.class));
 
@@ -375,21 +360,6 @@ class EcoNewsServiceImplTest {
         doNothing().when(ecoNewsRepo).deleteEcoNewsWithIds(listId);
         ecoNewsService.deleteAll(listId);
         verify(ecoNewsRepo, times(1)).deleteEcoNewsWithIds(listId);
-    }
-
-    @Test
-    void searchTest() {
-        Pageable pageable = PageRequest.of(0, 2);
-        List<EcoNews> ecoNews = Collections.singletonList(ModelUtils.getEcoNews());
-        SearchNewsDto searchNewsDto = ModelUtils.getSearchNewsDto();
-        Page<EcoNews> page = new PageImpl<>(ecoNews, pageable, 2);
-        List<SearchNewsDto> searchNewsDtos = Collections.singletonList(searchNewsDto);
-        PageableDto<SearchNewsDto> actual = new PageableDto<>(searchNewsDtos, page.getTotalElements(),
-            page.getPageable().getPageNumber(), page.getTotalPages());
-        when(ecoNewsSearchRepo.find(pageable, "query", "en")).thenReturn(page);
-        when(modelMapper.map(ecoNews, SearchNewsDto.class)).thenReturn(searchNewsDto);
-        PageableDto<SearchNewsDto> expected = ecoNewsService.search(pageable, "query", "en");
-        assertEquals(expected.getTotalPages(), actual.getTotalPages());
     }
 
     @Test

@@ -4,7 +4,6 @@ import greencity.dto.PageableAdvancedDto;
 import greencity.dto.PageableDto;
 import greencity.dto.econews.*;
 import greencity.dto.econewscomment.EcoNewsCommentVO;
-import greencity.dto.search.SearchNewsDto;
 import greencity.dto.user.UserVO;
 import java.util.Set;
 import org.springframework.data.domain.Pageable;
@@ -120,25 +119,6 @@ public interface EcoNewsService {
      * @param listId list of id {@link EcoNewsVO}
      */
     void deleteAll(List<Long> listId);
-
-    /**
-     * Method for getting EcoNews by searchQuery.
-     *
-     * @param searchQuery query to search
-     * @return list of {@link SearchNewsDto}
-     * @author Vadym Makitra
-     */
-    PageableDto<SearchNewsDto> search(String searchQuery, String languageCode);
-
-    /**
-     * Method for getting all EcoNews by searchQuery.
-     *
-     * @param pageable    {@link Pageable}.
-     * @param searchQuery query to search.
-     * @return PageableDto of {@link SearchNewsDto} instances.
-     * @author Vadym Maktra
-     */
-    PageableDto<SearchNewsDto> search(Pageable pageable, String searchQuery, String languageCode);
 
     /**
      * Method for getting all published news by user id.

@@ -9,7 +9,6 @@ import greencity.dto.PageableDto;
 import greencity.dto.econews.*;
 import greencity.dto.econewscomment.EcoNewsCommentVO;
 import greencity.dto.ratingstatistics.RatingStatisticsViewDto;
-import greencity.dto.search.SearchNewsDto;
 import greencity.dto.tag.TagVO;
 import greencity.dto.user.EcoNewsAuthorDto;
 import greencity.dto.user.PlaceAuthorDto;
@@ -331,37 +330,6 @@ public class EcoNewsServiceImpl implements EcoNewsService {
     @Override
     public void deleteAll(List<Long> listId) {
         ecoNewsRepo.deleteEcoNewsWithIds(listId);
-    }
-
-    /**
-     * Method for getting EcoNews by searchQuery.
-     *
-     * @param searchQuery query to search
-     * @return list of {@link EcoNewsDto}
-     * @author Kovaliv Taras
-     */
-    @Override
-    public PageableDto<SearchNewsDto> search(String searchQuery, String languageCode) {
-        Page<EcoNews> page = ecoNewsSearchRepo.find(PageRequest.of(0, 3), searchQuery, languageCode);
-        return getSearchNewsDtoPageableDto(page);
-    }
-
-    @Override
-    public PageableDto<SearchNewsDto> search(Pageable pageable, String searchQuery, String languageCode) {
-        Page<EcoNews> page = ecoNewsSearchRepo.find(pageable, searchQuery, languageCode);
-        return getSearchNewsDtoPageableDto(page);
-    }
-
-    private PageableDto<SearchNewsDto> getSearchNewsDtoPageableDto(Page<EcoNews> page) {
-        List<SearchNewsDto> searchNewsDtos = page.stream()
-            .map(ecoNews -> modelMapper.map(ecoNews, SearchNewsDto.class))
-            .collect(Collectors.toList());
-
-        return new PageableDto<>(
-            searchNewsDtos,
-            page.getTotalElements(),
-            page.getPageable().getPageNumber(),
-            page.getTotalPages());
     }
 
     /**

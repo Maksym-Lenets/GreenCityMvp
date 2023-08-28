@@ -47,7 +47,6 @@ import greencity.dto.language.LanguageDTO;
 import greencity.dto.language.LanguageTranslationDTO;
 import greencity.dto.language.LanguageVO;
 import greencity.dto.ownsecurity.OwnSecurityVO;
-import greencity.dto.search.SearchNewsDto;
 import greencity.dto.shoppinglistitem.CustomShoppingListItemResponseDto;
 import greencity.dto.shoppinglistitem.CustomShoppingListItemVO;
 import greencity.dto.shoppinglistitem.CustomShoppingListItemWithStatusSaveRequestDto;
@@ -994,11 +993,6 @@ public class ModelUtils {
     public static UpdateEcoNewsDto getUpdateEcoNewsDto() {
         return new UpdateEcoNewsDto(1L, "title", "text", "shortInfo", Collections.singletonList("tag"),
             "image", "source");
-    }
-
-    public static SearchNewsDto getSearchNewsDto() {
-        return new SearchNewsDto(1L, "title", getEcoNewsAuthorDto(), ZonedDateTime.now(),
-            Collections.singletonList("tag"));
     }
 
     public static EcoNewsCommentVO getEcoNewsCommentVO() {
